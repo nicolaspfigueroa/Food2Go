@@ -2,10 +2,11 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const SECRET_KEY = 'Vivaelperu';
+const db = require('../models/index.js');
 
 const create = async(req, res) => {
-    const {email, password} = req.body;
-    const user = await User.findOne({where: {email: email}});
+    const {email, password, nickname} = req.body;
+    const user = await db.User.findOne({where: {email: email}});
     if (user)
         return res 
             .status(409)
@@ -13,13 +14,9 @@ const create = async(req, res) => {
     try {
         if (password === '') throw new Error();
         const hash = await bcrypt.hash(password, 10);
-        const newUser = new User({
-            ...req.body,
-            password: hash,
-        })
-        const {id} = await newUser.save();
-        const accesToken = jwt.sign({id}, SECRET_KEY);
-        res.status(201).send({accesToken});
+        const {id} = await db.User.create({email, password: hash, nickname});
+        const accessToken = jwt.sign({id}, SECRET_KEY);
+        res.status(201).send({accessToken});
 
     } catch (error) {
         res.status(400).send({error, message: 'Could not create user' });
@@ -29,7 +26,7 @@ const create = async(req, res) => {
 const login = async(req, res) => {
     const {email, password} = req.body;
     try {
-        const user = await User.findOne({where: {email: email}});
+        const user = await db.User.findOne({where: {email: email}});
         const validatedPass = await bcrypt.compare(password, user.password);
         if (!validatedPass) throw new Error();
         const accessToken = jwt.sign({id: user.id}, SECRET_KEY);

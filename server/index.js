@@ -19,7 +19,7 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, async (err) => {
     //await sequelize.authenticate();
-    await db.sequelize.sync({force: true});
+    await db.sequelize.sync();
     if (err) {
         console.log(`Something went wrong ${err}`)
     } else {
