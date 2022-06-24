@@ -1,23 +1,28 @@
-const Koa = require('koa');
-const app = new Koa();
-const KoaBodyParser = require('koa-bodyparser');
-const KoaStatic = require('koa-static');
-const path = require('path');
-
-const clientPath = __dirname + '/../../../client';
-
-const db = require('./models/index.js');
+const express = require ('express');
+const cors = require('cors');
+const app = express();
+const PORT = 3001; 
 const router = require('./router');
-const bodyParser = new KoaBodyParser();
-const koaStatic = new KoaStatic(clientPath);
+const sequelize = require('./db');
 
-const PORT = 3000;
+const corsConfig = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+}
 
-app.use(koaStatic)
-  .use(bodyParser)
-  .use(router.routes());
+app.use(cors(corsConfig));
+app.use(express.json());
+app.use(router);
+app.get('*', (req, res) => {
+    res.status(404).send('Not found');
+})
 
-(async function bootstrap () {
-  await db.sequelize.sync();
-  app.listen(PORT, () => console.log('Server listening...'));
-})();
+app.listen(PORT, async (err) => {
+    await sequelize.authenticate();
+    await sequelize.sync();
+    if (err) {
+        console.log(`Something went wrong ${err}`)
+    } else {
+        console.log(`Server listening on port ${PORT}`)
+    }
+})
