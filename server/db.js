@@ -1,6 +1,6 @@
 const {Sequelize} = require('sequelize'); 
 
-const sequelize = new Sequelize('myroutesdb', 'postgres', '7415963Qwe$', {
+const sequelize = new Sequelize('Food2Go', 'postgres', 'admin', {
   host: 'localhost',
   dialect: 'postgres'
 })
