@@ -1,8 +1,8 @@
-const {Sequelize, DataTypes} = require('sequelize');
-const sequelize = require('../db');
+// const {Sequelize, DataTypes} = require('sequelize');
+// const sequelize = require('../db');
+'use strict';
 
-
-const User = sequelize.define('User', {
+module.exports = (sequelize, DataTypes) => sequelize.define('User', {
     email: {
         type: DataTypes.STRING,
         allowNull: false
@@ -15,6 +15,10 @@ const User = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull: false
     }
-})
+});
 
-module.exports = User
+// const User = sequelize.define('User', {
+
+// })
+
+// module.exports = User

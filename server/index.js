@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const PORT = 3001; 
 const router = require('./router');
-const sequelize = require('./db');
+const db = require('./models');
 
 const corsConfig = {
     origin: 'http://localhost:3000',
@@ -18,8 +18,8 @@ app.get('*', (req, res) => {
 })
 
 app.listen(PORT, async (err) => {
-    await sequelize.authenticate();
-    await sequelize.sync();
+    //await sequelize.authenticate();
+    await db.sequelize.sync({force: true});
     if (err) {
         console.log(`Something went wrong ${err}`)
     } else {

@@ -1,15 +1,14 @@
-const {Sequelize, DataTypes} = require('sequelize');
-const sequelize = require('../db');
-const User = require('./user');
+// const {Sequelize, DataTypes} = require('sequelize');
+// const sequelize = require('../db');
+//const User = require('./user');
 
 
-const UserPurchases = sequelize.define('UserPurchase', {
+module.exports = (sequelize, DataTypes, Deferrable) => sequelize.define('UserPurchase', {
     userId: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: DataTypes.INTEGER,
         references: {
-          model: User,
-          key: id,
+          model: "Users",
+          key: "id",
           //deferrable: Deferrable.INITIALLY_IMMEDIATE
         }
     },
@@ -21,6 +20,6 @@ const UserPurchases = sequelize.define('UserPurchase', {
       type: DataTypes.FLOAT,
       allowNull: false
     }
-})
+});
 
-module.exports = UserPurchases
+// module.exports = UserPurchases
