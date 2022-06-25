@@ -16,6 +16,6 @@ module.exports = (sequelize, DataTypes) => sequelize.define('Restaurants', {
   },
   imgUrl: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
   }
 });
