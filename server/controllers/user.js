@@ -40,8 +40,9 @@ const login = async(req, res) => {
 
 const profile = async(req, res) => {
     try {
-        const {id, nickname} = req.user;
+        const {id, nickname} = req.body;
         const user = {id, nickname};
+        console.log(user);
         res.status(200).send(user);
     } catch (error) {
         res.status(404).send({error, message: 'Resource not found'});
