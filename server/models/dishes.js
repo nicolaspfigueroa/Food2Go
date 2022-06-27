@@ -15,4 +15,6 @@ module.exports = (sequelize, DataTypes) => sequelize.define('Dishes', {
     type: DataTypes.FLOAT,
     allowNull: false
   }
-});
+},
+{timestamps: false}
+);
