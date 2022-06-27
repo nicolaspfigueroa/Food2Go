@@ -9,6 +9,6 @@ const rootRouter = Router();
 rootRouter.use('/user', userRouter);
 rootRouter.use('/restaurant', restaurantRouter);
 rootRouter.use('/payment', stripeRouter);
-rootRouter.use('./dish', dishRouter);
+rootRouter.use('/dish', dishRouter);
 
 exports.router = rootRouter;
