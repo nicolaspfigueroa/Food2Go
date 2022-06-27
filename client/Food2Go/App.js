@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
@@ -20,8 +21,17 @@ const theme = {
   }
 }
 
+=======
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import auth from './utils/auth';
+>>>>>>> 26b244a0ceef8a09856885caae1b89a79a408c39
 
 export default function App() {
+
+  const initialState = auth.isAuthenticated();
+  const [isAuthenticated, setIsAuthenticated] = useState(initialState);
+
   return (
     <NavigationContainer theme = {theme}>
       <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
