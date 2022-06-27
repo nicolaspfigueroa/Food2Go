@@ -11,7 +11,7 @@ exports.getAll = async (req, res) => {
 
 exports.getOne = async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const restaurant = await db.Restaurants.findOne({where: {id: id}});
     res.status(201).send(restaurant);
   } catch (error) {
