@@ -5,7 +5,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const db = {};
 
-const sequelize = new Sequelize('Food2Go', 'postgres', 'admin', {
+const sequelize = new Sequelize('Food2Go', 'postgres', '7415963Qwe$', {
   host: 'localhost',
   dialect: 'postgres',
   logging: true,

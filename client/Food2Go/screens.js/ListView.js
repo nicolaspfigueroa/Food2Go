@@ -1,5 +1,9 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { useState } from 'react';
+import { View, SafeAreaView, FlatList, Text} from 'react-native';
+
+
+import {RestaurantInfo } from '../components/ListViewComp/RestaurantInfo';
+
 
 const ListView = () => {
   return (
