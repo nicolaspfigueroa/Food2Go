@@ -1,9 +1,10 @@
 //no auth required 
 import { View, Text } from 'react-native'
 import React from 'react'
-import { useState } from "react";
+import { useState, useContext } from "react";
 import auth from '../utils/auth';
 import apiServiceJWT from './../services/ApiService';
+import { AppContext } from '../App';
 
 const initialState = {
   email: '',
@@ -11,8 +12,11 @@ const initialState = {
   nickname: '',
 };
 
-const Register = (props) => {
+const Register = () => {
   const [state, setState] = useState(initialState);
+
+  const {isAuthenticated, setIsAuthenticated} = useContext(AppContext);
+  console.log(isAuthenticated);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +41,7 @@ const Register = (props) => {
     } else {
       const { accessToken } = res;
       localStorage.setItem('accessToken', accessToken);
-      props.setIsAuthenticated(true);
+      setIsAuthenticated(true);
       auth.login(() => navigation.navigate('/profile'));
     }
     // REMOVE-END
