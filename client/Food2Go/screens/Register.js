@@ -44,7 +44,7 @@ const Register = (props) => {
 
   const validateForm = () => {
     return (
-      !state.email || !state.password || !state.firstName || !state.lastName
+      !state.email || !state.password || !state.nickname
     );
   };
 
