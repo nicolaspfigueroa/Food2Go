@@ -1,7 +1,7 @@
 //no auth required 
-import { View, Text } from 'react-native'
-import React from 'react'
-import { useState, useContext } from "react";
+import { View, Text, TouchableOpacity } from 'react-native'
+import {Input} from 'react-native-elements';
+import React, { useState, useContext } from "react";
 import auth from '../utils/auth';
 import apiServiceJWT from './../services/ApiService';
 import { AppContext } from '../App';
@@ -54,33 +54,30 @@ const Register = (props) => {
 
   return (
     <View>
-      <h2>Register</h2>
-      <form className="form" onSubmit={handleSubmit}>
-        <input
-          type="text"
+      <Text>Register</Text>
+        <Input
           placeholder="name@mail.com"
           name="email"
           value={state.email}
           onChange={handleChange}
         />
-        <input
-          type="password"
+        <Input
           placeholder="password"
           name="password"
           value={state.password}
           onChange={handleChange}
         />
-        <input
-          type="text"
+        <Input
           placeholder="nickname"
           name="nickname"
           value={state.nickname}
           onChange={handleChange}
         />
-        <button className="form-submit" type="submit" disabled={validateForm()}>
-          Register
-        </button>
-      </form>
+        <TouchableOpacity className="form-submit" type="submit" disabled={validateForm()} onPress = {handleSubmit}>
+          <Text>
+            Register
+          </Text>
+        </TouchableOpacity>
     </View>
   )
 }
