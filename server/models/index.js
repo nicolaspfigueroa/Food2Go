@@ -1,11 +1,13 @@
 'use strict';
+require('dotenv').config({path: '.env'});
+const dbPass = process.env.DB_PASS;
 
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const db = {};
 
-const sequelize = new Sequelize('Food2Go', 'postgres', '7415963Qwe$', {
+const sequelize = new Sequelize('Food2Go', 'postgres', dbPass, {
   host: 'localhost',
   dialect: 'postgres',
   logging: true,
