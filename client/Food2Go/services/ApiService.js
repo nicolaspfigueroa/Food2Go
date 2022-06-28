@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:3001/user';
+//require('dotenv').config({path: '../../.env'});
+//const BASE_URL = `${process.env.NGROK}/user`;
+const BASE_URL = 'https://8056-2601-281-300-2620-1c77-5ec1-3472-18bb.ngrok.io/user'
 
 const apiService = {};
 
