@@ -1,0 +1,31 @@
+{
+  "name": "food2go",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolaspfigueroa/Food2Go.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolaspfigueroa/Food2Go/issues"
+  },
+  "homepage": "https://github.com/nicolaspfigueroa/Food2Go#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.18",
+    "pg": "^8.7.3",
+    "sequelize": "^6.21.0",
+    "stripe": "^9.10.0"
+  }
+}
