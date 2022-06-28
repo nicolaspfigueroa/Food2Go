@@ -10,7 +10,7 @@ const corsConfig = {
     credentials: true,
 }
 
-app.use(cors(corsConfig));
+app.use(cors(/*corsConfig*/));
 app.use(express.json());
 app.use(router);
 app.get('*', (req, res) => {

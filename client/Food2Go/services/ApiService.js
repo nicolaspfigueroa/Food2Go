@@ -6,7 +6,6 @@ const apiService = {};
 
 apiService.register = (user) => {
   // REMOVE-START
-  console.log(user);
   return fetch(`${BASE_URL}/register`, {
     method: 'POST',
     credentials: 'include',
