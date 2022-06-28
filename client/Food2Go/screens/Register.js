@@ -42,7 +42,7 @@ const Register = () => {
       const { accessToken } = res;
       localStorage.setItem('accessToken', accessToken);
       setIsAuthenticated(true);
-      auth.login(() => navigation.navigate('/profile'));
+      auth.login(() => navigation.navigate("Profile"));
     }
     // REMOVE-END
   };
