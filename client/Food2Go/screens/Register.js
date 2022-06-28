@@ -17,23 +17,24 @@ const Register = (props) => {
 
   //const {isAuthenticated, setIsAuthenticated} = useContext(AppContext);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setState((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  // const handleChange = (e) => {
+  //   console.log(e);
+  //   const { name, value } = e.target;
+  //   setState((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     // Check the client-session to see how to handle redirects
     // REMOVE-START
-    console.log(props);
-    e.preventDefault();
+
+    //e.preventDefault();
     const { email, password, nickname } = state;
     const user = { email, password, nickname};
     const res = await apiServiceJWT.register(user);
-
+    console.log(res);
     if (res.error) {
       alert(`${res.message}`);
       setState(initialState);
@@ -59,21 +60,31 @@ const Register = (props) => {
           placeholder="name@mail.com"
           name="email"
           value={state.email}
-          onChange={handleChange}
+          onChangeText={value => setState((prevState) => ({
+            ...prevState,
+            email: value
+          }))}
         />
         <Input
           placeholder="password"
           name="password"
+          secureTextEntry={true}
           value={state.password}
-          onChange={handleChange}
+          onChangeText={value => setState((prevState) => ({
+            ...prevState,
+            password: value
+          }))}
         />
         <Input
           placeholder="nickname"
           name="nickname"
           value={state.nickname}
-          onChange={handleChange}
+          onChangeText={value => setState((prevState) => ({
+            ...prevState,
+            nickname: value
+          }))}
         />
-        <TouchableOpacity className="form-submit" type="submit" disabled={validateForm()} onPress = {handleSubmit}>
+        <TouchableOpacity disabled={validateForm()} onPress = {handleSubmit}>
           <Text>
             Register
           </Text>
