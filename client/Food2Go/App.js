@@ -5,7 +5,7 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
 import ListView from "./screens/ListView";
 import Login from "./screens/Login";
-import MapView from "./screens/MapView";
+import MapScreen from "./screens/MapScreen";
 import Menu from "./screens/Menu";
 import Profile from "./screens/Profile";
 import Register from "./screens/Register";
@@ -38,7 +38,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="ListView"  component={ListView} />
-        <Stack.Screen name="MapView"  component={MapView} />
+        <Stack.Screen name="MapScreen"  component={MapScreen} />
         <Stack.Screen name="Menu" component={Menu} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="ShopCart" component={ShopCart} />
