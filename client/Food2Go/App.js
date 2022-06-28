@@ -5,7 +5,7 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
 import ListView from "./screens/ListView";
 import Login from "./screens/Login";
-import MapView from "./screens/MapView";
+import MapScreen from "./screens/MapScreen";
 import Menu from "./screens/Menu";
 import Profile from "./screens/Profile";
 import Register from "./screens/Register";
@@ -36,6 +36,7 @@ export default function App() {
 
   return (
     <NavigationContainer theme = {theme}>
+
         <AppContext.Provider value = {{isAuthenticated, setIsAuthenticated}}>
           <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Register">
             <Stack.Screen name="Login" component={Login} />
@@ -48,5 +49,6 @@ export default function App() {
           </Stack.Navigator>
         </AppContext.Provider>
       </NavigationContainer>
+
   );
 }

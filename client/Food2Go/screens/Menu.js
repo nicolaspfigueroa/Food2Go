@@ -2,10 +2,13 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Menu = () => {
+
+const Menu = ( {restaurant, navigation}) => {
+  console.dir(restaurant);
   return (
     <View>
-      <Text>Menu</Text>
+      <Text onPress={()=>navigation.goBack()} style={{paddingTop:100}}>Go back </Text>
+      <Text>Hola</Text>
     </View>
   )
 }
