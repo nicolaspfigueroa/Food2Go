@@ -25,6 +25,7 @@ const Register = (props) => {
   const handleSubmit = async (e) => {
     // Check the client-session to see how to handle redirects
     // REMOVE-START
+    console.log(props);
     e.preventDefault();
     const { email, password, nickname } = state;
     const user = { email, password, nickname};
