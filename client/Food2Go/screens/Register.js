@@ -12,11 +12,10 @@ const initialState = {
   nickname: '',
 };
 
-const Register = () => {
+const Register = (props) => {
   const [state, setState] = useState(initialState);
 
-  const {isAuthenticated, setIsAuthenticated} = useContext(AppContext);
-  console.log(isAuthenticated);
+  //const {isAuthenticated, setIsAuthenticated} = useContext(AppContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,7 +40,7 @@ const Register = () => {
     } else {
       const { accessToken } = res;
       localStorage.setItem('accessToken', accessToken);
-      setIsAuthenticated(true);
+      props.setIsAuthenticated(true);
       auth.login(() => navigation.navigate("Profile"));
     }
     // REMOVE-END
