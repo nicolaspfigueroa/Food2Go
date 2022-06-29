@@ -4,6 +4,8 @@ import {Input} from 'react-native-elements';
 import React, { useState, useContext } from "react";
 import auth from '../utils/auth';
 import apiServiceJWT from './../services/ApiService';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from "@react-navigation/native";
 import { AppContext } from '../App';
 
 const initialState = {
@@ -14,6 +16,7 @@ const initialState = {
 const Login = (props) => {
 
 const [state, setState] = useState(initialState);
+const navigation = useNavigation();
 
 const handleSubmit = async () => {
   // Check the client-session to see how to handle redirects
@@ -29,7 +32,7 @@ const handleSubmit = async () => {
     setState(initialState);
   } else {
     const { accessToken } = res;
-    localStorage.setItem('accessToken', accessToken);
+    await AsyncStorage.setItem('accessToken', accessToken);
     props.setIsAuthenticated(true);
     setState(initialState);
     auth.login(() => navigation.navigate("Profile"));
