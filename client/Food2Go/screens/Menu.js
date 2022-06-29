@@ -67,9 +67,11 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#38b000',
     alignItems: 'center',
     justifyContent: 'center',
+    height :'20%',
+    width: '100%',
   },
   tittle: {
     width: 200,
