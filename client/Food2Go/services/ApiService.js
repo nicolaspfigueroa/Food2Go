@@ -2,6 +2,7 @@ const NGROK = require('../utils/ngrok');
 const BASE_URL = `${NGROK}/user`
 
 const apiService = {};
+console.log(BASE_URL);
 
 apiService.register = (user) => {
   // REMOVE-START
