@@ -1,36 +1,45 @@
-//You need the list of all the restaurants. You can reuse the show
-// import { View, Text } from 'react-native'
-// import React from 'react'
 
-// const MapView = () => {
-//   return (
-//     <View>
-//       <Text>MapView</Text>
-//     </View>
-//   )
-// }
-
-// 
 import { useNavigation } from "@react-navigation/native";
 import * as React from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { RestaurantService } from '../services/RestaurantService'
+
 
 const MapScreen = ()=> {
   const navigation = useNavigation();
-  const restaurants = [{_id:1,"name": "Coctel del Mar", "latitude": 4.70362, "longitude": -74.04885,
+  const restaurants = [{id:1,"name": "Coctel del Mar", "latitude": 4.70362, "longitude": -74.04885,
 "city":"Bogota","hours":"",
 "description": "Seafood restaurant", "image": "coctel-del-mar.png",
 "address": "Av. Cra 19 #123-26"},
-{_id:2,"name": "14 Inkas", "latitude": 4.69903, "longitude": -74.02959,
+{id:2,"name": "14 Inkas", "latitude": 4.69903, "longitude": -74.02959,
     "city":"Bogota","hours":"",
     "description": "Peruvian restaurant", "image": "14-inkas.png",
     "address": "Cl. 119b #543"},
-{_id:3,"name": "Barricas tapas y Canas", "latitude": 4.69894, "longitude": -74.03861,
+{id:3,"name": "Barricas tapas y Canas", "latitude": 4.69894, "longitude": -74.03861,
     "city":"Bogota","hours":"",
     "description": "Spanish restaurant", "image": "barricas-tapas-y-canas.png",
     "address": "Cl. 119 #11d-15"}
 ];
+
+//Uncomment this to get the restaurants from RestaurantService
+
+
+// useEffect(() => {
+//   getRestaurants();
+// }, []);
+
+// const [restaurants, setRestaurants] = useState([]);
+
+// const getRestaurants= async () => {
+//   const { res, error} = await RestaurantService.getRestaurants();
+//   if (!error) {
+//     setRestaurants(res);
+//   } else {
+//     setError(res);
+//   }
+// };
+
 
   return (
     <View style={styles.container}>
@@ -44,14 +53,13 @@ const MapScreen = ()=> {
       }}>
          {restaurants.map((restaurant) => (
     <Marker
-      key={restaurant._id}
+      key={restaurant.id}
       title={restaurant.name}
       coordinate={{latitude:restaurant.latitude, longitude: restaurant.longitude}}
       >
       <Callout onPress={() => {navigation.navigate("Menu", {restaurant} )
 }}>
-        <View >
-            <Image source={require('./14-inkas.png')} style={styles.tinyLogo}/>
+        <View style={styles.imgcontainer}>
             <Text>
               {restaurant.description}
 
@@ -74,9 +82,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  imgcontainer: {
+    flex: 1,
+    
+  },
   tinyLogo: {
     width: 150,
-    height: 150,
+    height: 20,
+    marginBottom: 30,
   },
   map: {
     width: Dimensions.get('window').width,
