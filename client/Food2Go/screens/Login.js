@@ -19,10 +19,6 @@ const [state, setState] = useState(initialState);
 const navigation = useNavigation();
 
 const handleSubmit = async () => {
-  // Check the client-session to see how to handle redirects
-  // REMOVE-START
-
-  //e.preventDefault();
   const { email, password } = state;
   const user = { email, password};
   const res = await apiServiceJWT.login(user);
@@ -32,13 +28,37 @@ const handleSubmit = async () => {
     setState(initialState);
   } else {
     const { accessToken } = res;
-    await AsyncStorage.setItem('accessToken', accessToken);
+    console.log(accessToken);
+    //await AsyncStorage.setItem('accessToken', accessToken);
+    await storeAuth(accessToken);
+    await getAllKeys();
     props.setIsAuthenticated(true);
-    setState(initialState);
     auth.login(() => navigation.navigate("Profile"));
   }
   // REMOVE-END
 };
+
+const storeAuth = async (value) => {
+  try {
+    await AsyncStorage.setItem('accessToken', value)
+  } catch (error) {
+    console.log(error);
+  }
+  console.log('done');
+}
+
+const getAllKeys = async () => {
+  let keys = []
+  try {
+    keys = await AsyncStorage.getAllKeys()
+  } catch(e) {
+    // read key error
+  }
+
+  console.log(keys)
+  // example console.log result:
+  // ['@MyApp_user', '@MyApp_key']
+}
 
 const validateForm = () => {
   return (

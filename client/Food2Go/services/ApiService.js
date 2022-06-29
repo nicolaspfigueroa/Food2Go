@@ -34,6 +34,7 @@ apiService.login = (user) => {
 
 apiService.profile = (accessToken) => {
   // REMOVE-START
+  console.log('service', accessToken);
   return fetch(`${BASE_URL}/me`, {
     method: 'GET',
     credentials: 'include',
