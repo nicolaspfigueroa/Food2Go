@@ -37,7 +37,9 @@ export default function App() {
   return (
     <NavigationContainer theme = {theme}>
           <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Register">
-            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Login" >
+              {props => <Login setIsAuthenticated = {setIsAuthenticated}/>}
+            </Stack.Screen>
             <Stack.Screen name="Register">
               {props => <Register setIsAuthenticated = {setIsAuthenticated}/>}
             </Stack.Screen>
