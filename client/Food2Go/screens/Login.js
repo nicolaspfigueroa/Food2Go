@@ -22,16 +22,12 @@ const handleSubmit = async () => {
   const { email, password } = state;
   const user = { email, password};
   const res = await apiServiceJWT.login(user);
-  console.log(res);
   if (res.error) {
     alert(`${res.message}`);
     setState(initialState);
   } else {
     const { accessToken } = res;
-    console.log(accessToken);
-    //await AsyncStorage.setItem('accessToken', accessToken);
     await storeAuth(accessToken);
-    await getAllKeys();
     props.setIsAuthenticated(true);
     auth.login(() => navigation.navigate("Profile"));
   }
@@ -44,20 +40,6 @@ const storeAuth = async (value) => {
   } catch (error) {
     console.log(error);
   }
-  console.log('done');
-}
-
-const getAllKeys = async () => {
-  let keys = []
-  try {
-    keys = await AsyncStorage.getAllKeys()
-  } catch(e) {
-    // read key error
-  }
-
-  console.log(keys)
-  // example console.log result:
-  // ['@MyApp_user', '@MyApp_key']
 }
 
 const validateForm = () => {

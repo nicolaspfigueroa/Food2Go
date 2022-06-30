@@ -15,8 +15,6 @@ const Profile = () => {
     try {
       const token = await AsyncStorage.getItem('accessToken');
       if(token !== null) {
-        console.log('done');
-        console.log('token here', token);
         return token;
       }
     } catch (error) {
@@ -28,7 +26,6 @@ const Profile = () => {
     const getProfile = async () => {
       const accessToken = await getAccessToken();
       const userInfo = await apiServiceJWT.profile(accessToken);
-      console.log('userinfo', userInfo);
       if (userInfo) {
         const { nickname } = userInfo;
         setState((prevState) => {
