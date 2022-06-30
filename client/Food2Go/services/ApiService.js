@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const NGROK = require('../utils/ngrok');
 const BASE_URL = `${NGROK}/user`
 
@@ -51,7 +52,7 @@ apiService.profile = (accessToken) => {
 apiService.logout = (tokenName) => {
   // REMOVE-START
   // delete token from local storage here
-  localStorage.removeItem(tokenName);
+  AsyncStorage.removeItem(tokenName);
   // the following request should invalidate the token
   // return fetch(`${BASE_URL}/logout`, {
   //   method: 'POST',

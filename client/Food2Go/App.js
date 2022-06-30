@@ -27,6 +27,7 @@ const theme = {
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import auth from './utils/auth';
+import Logout from "./screens/Logout";
 
 
 export default function App() {
@@ -42,6 +43,9 @@ export default function App() {
             </Stack.Screen>
             <Stack.Screen name="Register">
               {props => <Register setIsAuthenticated = {setIsAuthenticated}/>}
+            </Stack.Screen>
+            <Stack.Screen name="Logout">
+              {props => <Logout setIsAuthenticated = {setIsAuthenticated}/>}
             </Stack.Screen>
             <Stack.Screen name="ListView"  component={ListView} />
             <Stack.Screen name="MapScreen"  component={MapScreen} />
