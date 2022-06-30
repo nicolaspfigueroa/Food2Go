@@ -2,7 +2,7 @@
 import { useNavigation } from "@react-navigation/native";
 import * as React from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { RestaurantService } from '../services/RestaurantService'
 
 
@@ -43,6 +43,8 @@ const MapScreen = ()=> {
 
   return (
     <View style={styles.container}>
+      
+      
       <MapView style={styles.map} 
        initialRegion={{
         
@@ -51,6 +53,7 @@ const MapScreen = ()=> {
         latitudeDelta: 0.015,
         longitudeDelta: 0.015,
       }}>
+       
          {restaurants.map((restaurant) => (
     <Marker
       key={restaurant.id}
@@ -71,6 +74,13 @@ const MapScreen = ()=> {
 
 
         </MapView>
+        <Image style={styles.shoopimg} 
+                source={require('./greenshoopingcart.png')} 
+                 />
+    
+        <Image style={styles.img} 
+                source={require('./greenlogo.png')} 
+                 />
     </View>
   );
 }
@@ -79,8 +89,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    
   },
   imgcontainer: {
     flex: 1,
@@ -95,6 +104,30 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
+  img: {
+    
+    width:80,
+    height:80,
+    marginTop:510,
+    marginLeft: 243,
+    position: 'absolute',
+    zIndex: 10,
+    alignSelf: 'flex-end'
+  },
+  shoopimg: {
+    width:80,
+    height:80,
+    marginTop:490,
+    marginRight: 100,
+    
+    position: 'absolute',
+    zIndex: 10,
+    
+    
+  }
 });
 
 export default MapScreen
+
+{/* <TouchableWithoutFeedback  style={styles.gobackimg}  onPress={()=>navigation.goBack()}><Image source={require("./goback.png")} style={styles.gobackimg} /> 
+      </TouchableWithoutFeedback> */}

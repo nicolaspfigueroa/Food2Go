@@ -45,11 +45,12 @@ const Menu = ( {route, navigation}) => {
       </View>
       <View style={styles.menucontainer}>
           {dishes.map((dish) => (
-        <View style={styles.dish}
+        <TouchableWithoutFeedback onPress={() => {navigation.navigate("Dish", {dish} )}} 
+        style={styles.dish}
           key={dish.id}>
             <Text>{dish.name}</Text>
             
-        </View>
+        </TouchableWithoutFeedback>
       ))}
       </View>
     </SafeAreaView>
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
    
   },
   header: {
@@ -71,8 +72,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingTop:10,
-    height :10,
+    
+    height :5,
     width: '100%',
   },
   tittle: {
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
   },
   menucontainer: {
     width: '100%',
-    height: 350,
+    height: 400,
   },
   dish: {
     width: 100,
