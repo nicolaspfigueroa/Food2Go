@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View, SafeAreaView, FlatList, Text} from 'react-native';
 
-
-import {RestaurantInfo } from '../components/ListViewComp/RestaurantInfo';
+import { RestaurantData } from '../components/ListViewComp/mockdb';
+import RestaurantInfo from '../components/ListViewComp/RestaurantInfo';
 
 
 const ListView = () => {
   return (
-    <View>
-      <Text>ListView</Text>
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={{flex: 1}}>
+        <View style = {{ zIndex: 0}}>
+          <FlatList
+            data = {RestaurantData}
+            renderItem = {({item}) => <RestaurantInfo data = {item}></RestaurantInfo>} 
+            keyExtractor = {(item) => item.id}
+            showsVerticalScrollIndicator = {false}
+            ListHeaderComponent = {<Text>List of Restaurant</Text>}
+          />
+        </View>
+      </View>
+    </SafeAreaView>
   )
 }
 
