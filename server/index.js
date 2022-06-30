@@ -6,11 +6,11 @@ const { router } = require('./router/index');
 const db = require('./models');
 
 const corsConfig = {
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:19006',
     credentials: true,
 }
 
-app.use(cors(corsConfig));
+app.use(cors(/*corsConfig*/));
 app.use(express.json());
 app.use(router);
 app.get('*', (req, res) => {

@@ -1,4 +1,6 @@
-const baseURL = 'http://localhost:3001/restaurant';
+const NGROK = require('../utils/ngrok');
+const BASE_URL = `${NGROK}/restaurant`
+//const baseURL = 'http://localhost:3001/restaurant';
 
 const restaurantService = {};
 

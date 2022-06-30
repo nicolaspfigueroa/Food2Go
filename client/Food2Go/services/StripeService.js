@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:3001/payment';
+const NGROK = require('../utils/ngrok');
+const BASE_URL = `${NGROK}/payment`
+//const BASE_URL = 'http://localhost:3001/payment';
 
 // possible to refactor into a 'fetch factory' to reduce repetition
 
