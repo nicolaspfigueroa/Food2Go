@@ -4,6 +4,7 @@ import * as React from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { RestaurantService } from '../services/RestaurantService'
+import NavBar from "../components/NavBar/NavBar";
 
 
 const MapScreen = ()=> {
@@ -81,6 +82,7 @@ const MapScreen = ()=> {
         <Image style={styles.img} 
                 source={require('./greenlogo.png')} 
                  />
+      <NavBar></NavBar>
     </View>
   );
 }

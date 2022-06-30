@@ -4,6 +4,7 @@ import apiServiceJWT from './../services/ApiService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
+import NavBar from '../components/NavBar/NavBar';
 
 const initialState = {
   nickname: ''
@@ -53,6 +54,7 @@ const Profile = () => {
           Logout
         </Text>
       </TouchableOpacity>
+      <NavBar></NavBar>
     </View>
   )
 }

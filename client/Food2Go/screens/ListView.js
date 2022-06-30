@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, SafeAreaView, FlatList, Text} from 'react-native';
+import NavBar from '../components/NavBar/NavBar';
 
 import { RestaurantData } from '../components/ListViewComp/mockdb';
 import RestaurantInfo from '../components/ListViewComp/RestaurantInfo';
@@ -19,6 +20,7 @@ const ListView = () => {
           />
         </View>
       </View>
+      <NavBar></NavBar>
     </SafeAreaView>
   )
 }

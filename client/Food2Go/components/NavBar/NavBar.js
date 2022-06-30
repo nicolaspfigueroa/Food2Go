@@ -10,9 +10,26 @@ const NavBar = () => {
 
   return (
     <View>
-      <TouchableOpacity></TouchableOpacity>
-      <TouchableOpacity></TouchableOpacity>
-      <TouchableOpacity></TouchableOpacity>
+      <TouchableOpacity onPress = {() => navigation.navigate('Profile')}>
+        <Text>
+          Profile
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress = {() => navigation.navigate('MapScreen')}>
+        <Text>
+          Map
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress = {() => navigation.navigate('ShopCart')}>
+        <Text>
+          Shopping Cart
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress = {() => navigation.navigate('ListView')}>
+        <Text>
+          List View
+        </Text>
+      </TouchableOpacity>
     </View>
   )
 }
