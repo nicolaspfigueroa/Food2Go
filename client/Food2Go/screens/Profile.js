@@ -2,6 +2,8 @@ import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import apiServiceJWT from './../services/ApiService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from "@react-navigation/native";
 
 const initialState = {
   nickname: ''
@@ -10,6 +12,8 @@ const initialState = {
 const Profile = () => {
   const [state, setState] = useState(initialState);
   const nickname = state.nickname || 'Missing';
+
+  const navigation = useNavigation();
 
   const getAccessToken = async () => {
     try {
@@ -44,6 +48,11 @@ const Profile = () => {
   return (
     <View>
       <Text>Welcome back, {nickname}!</Text>
+      <TouchableOpacity onPress = {() => navigation.navigate('Logout')}>
+        <Text>
+          Logout
+        </Text>
+      </TouchableOpacity>
     </View>
   )
 }
