@@ -76,6 +76,11 @@ const validateForm = () => {
             Login
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('Register')}>
+          <Text>
+            Register Account
+          </Text>
+        </TouchableOpacity>
     </View>
   )
 }
