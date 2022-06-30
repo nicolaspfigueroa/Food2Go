@@ -1,16 +1,166 @@
-//consider that you need an Id from restaurant as a prop to use the service getRestaurant by Id 
-import { View, Text } from 'react-native'
+import { StyleSheet, View, Text, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
+import { DishService } from '../services/DishService';
 
 
-const Menu = ( {restaurant, navigation}) => {
-  console.dir(restaurant);
+const Menu = ( {route, navigation}) => {
+
+  const dishes = [{"id":1, "name" : "Langostinos arare","restaurant":"Coctel del Mar"  ,
+  "description" : "6 breaded shrimps in a crunchy bed of masago arare.",
+  "image" : "Coctel-del-Mar_langostinos-arare.png",
+"classification" : "appetizers", "price": 26200  },
+{"id":2, "name" : "Spring rolls","restaurant":"Coctel del Mar"  ,
+  "description" : "Crunchy shrimp spring rolls.",
+  "image" : "Coctel-del-Mar_spring-rolls.png",
+"classification" : "appetizers", "price": 16500  },
+{"id":3, "name" : "Salmon rice","restaurant":"Coctel del Mar"  ,
+  "description" : "Wok style rice with fresh vegies and salmon, served with mango sauce and siam albahaca.",
+  "image" : "Coctel-del-Mar_salmon-rice.png",
+"classification" : "rice", "price": 30100  }]
+  
+// useEffect(() => {
+//   getDishes();
+// }, []);
+
+// const [dishes, setDishes] = useState([]);
+
+// const getDishes= async () => {
+//   const { res, error} = await DishService.getRestaurantDishes(route.params.restaurant.id);
+//   if (!error) {
+//     setDishes(res);
+//   } else {
+//     setError(res);
+//   }
+// };
+  
   return (
-    <View>
-      <Text onPress={()=>navigation.goBack()} style={{paddingTop:100}}>Go back </Text>
-      <Text>Hola</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={require("./wgoback.png")} style={{width:35,height:35}} /> 
+        </TouchableWithoutFeedback> 
+        <Text style={styles.txt}>{route.params.restaurant.name}</Text>
+        <Image source={require("./logo.png")} style={{width:50,height:50, marginRight:10}} />
+      </View>
+      
+      <View style={styles.menucontainer}>
+          {dishes.map((dish) => (
+        <TouchableWithoutFeedback onPress={() => {navigation.navigate("Dish", {dish} )}} key={dish.id}> 
+          <View    style={styles.dish}>
+                
+                  <Text>{dish.name}</Text>
+                  </View>
+            
+        </TouchableWithoutFeedback>
+      ))}
+      </View>
+      <View style={styles.bottom}>
+      <Image source={require("./whiteshoopingcart.png")} style={{width:55,height:55}} />
+      </View>
+    </SafeAreaView>
   )
 }
 
+const SHADOWS = {
+  light: {
+    shadowColor: 'gray',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
+  medium: {
+    shadowColor: 'gray',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  },
+  dark: {
+    shadowColor: 'gray',
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.41,
+    shadowRadius: 9.11,
+    elevation: 14,
+  },
+};
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: '#fff',
+    
+    justifyContent: 'space-between',
+   
+  },
+  header: {
+    flex: .7,
+    backgroundColor: '#38b000',
+    fontSize: '10px',
+    fontColor: '#fff',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+   
+    height :70,
+    width: '100%',
+  },
+  txt: { color: 'white',  fontSize: 20,
+  fontWeight: "bold"},
+  bottom: {
+    flex: .6,
+    backgroundColor: '#38b000',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+
+
+
+,
+
+  tittle: {
+    flex :1,
+    width: 300,
+    height: 165,
+    shadowColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+  },
+  menucontainer: {
+    width: '100%',
+    height: 400,
+    flex: 3
+  },
+  dish: {
+    width: 200,
+    height:200,
+    ...SHADOWS.dark
+  },
+  dishdetail: {
+    width: 150,
+    height: 150,
+  }
+});
+
 export default Menu
+
+
+
+// <Callout onPress={() => {console.log('here you should be  directed to pay for '+dish.name) }}>
+//         <View style={styles.dishdetail}>
+//             <Text>{dish.name}</Text>
+//             <Text>{dish.description}</Text>
+//             <Text>{dish.price}</Text>
+//         </View> 
+//       </Callout>    
