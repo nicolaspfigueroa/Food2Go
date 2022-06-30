@@ -26,8 +26,16 @@ const Logout = (props) => {
   return (
     <View>
       <Text>Are you sure you want to log out?</Text>
-      <TouchableOpacity onPress = {handleClick}>Yes</TouchableOpacity>
-      <TouchableOpacity onPress = {() => navigation.navigate('Profile')}>No</TouchableOpacity>
+      <TouchableOpacity onPress = {handleClick}>
+        <Text>
+           Yes
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress = {() => navigation.navigate('Profile')}>
+        <Text>
+          No
+        </Text>
+      </TouchableOpacity>
     </View>
   )
 }

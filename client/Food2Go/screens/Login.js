@@ -29,6 +29,7 @@ const handleSubmit = async () => {
     const { accessToken } = res;
     await storeAuth(accessToken);
     props.setIsAuthenticated(true);
+    setState(initialState);
     auth.login(() => navigation.navigate("Profile"));
   }
   // REMOVE-END
