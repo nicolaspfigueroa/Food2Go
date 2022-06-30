@@ -36,50 +36,103 @@ const Menu = ( {route, navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-      <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={require("./goback.png")} style={{width:50,height:50}} /> 
-      </TouchableWithoutFeedback>
-       <Image source={require("./logo.png")} style={{width:50,height:50, marginRight:10}} />
+        <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={require("./wgoback.png")} style={{width:35,height:35}} /> 
+        </TouchableWithoutFeedback> 
+        <Text style={styles.txt}>{route.params.restaurant.name}</Text>
+        <Image source={require("./logo.png")} style={{width:50,height:50, marginRight:10}} />
       </View>
-      <View style={styles.tittle}>
-      <Image source={require('./14-inkas.png')} style={{width:230,height:70}}/>
-      </View>
+      
       <View style={styles.menucontainer}>
           {dishes.map((dish) => (
-        <TouchableWithoutFeedback onPress={() => {navigation.navigate("Dish", {dish} )}} 
-        style={styles.dish}
-          key={dish.id}>
-            <Text>{dish.name}</Text>
+        <TouchableWithoutFeedback onPress={() => {navigation.navigate("Dish", {dish} )}} key={dish.id}> 
+          <View    style={styles.dish}>
+                
+                  <Text>{dish.name}</Text>
+                  </View>
             
         </TouchableWithoutFeedback>
       ))}
       </View>
+      <View style={styles.bottom}>
+      <Image source={require("./whiteshoopingcart.png")} style={{width:55,height:55}} />
+      </View>
     </SafeAreaView>
   )
 }
+
+const SHADOWS = {
+  light: {
+    shadowColor: 'gray',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
+  medium: {
+    shadowColor: 'gray',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  },
+  dark: {
+    shadowColor: 'gray',
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.41,
+    shadowRadius: 9.11,
+    elevation: 14,
+  },
+};
 
 
 const styles = StyleSheet.create({
   container: {
     flex:1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    
     justifyContent: 'space-between',
    
   },
   header: {
-    flex: 1,
+    flex: .7,
     backgroundColor: '#38b000',
+    fontSize: '10px',
+    fontColor: '#fff',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    
-    height :5,
+   
+    height :70,
     width: '100%',
   },
+  txt: { color: 'white',  fontSize: 20,
+  fontWeight: "bold"},
+  bottom: {
+    flex: .6,
+    backgroundColor: '#38b000',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+
+
+
+,
+
   tittle: {
     flex :1,
     width: 300,
     height: 165,
+    shadowColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
 
@@ -87,11 +140,12 @@ const styles = StyleSheet.create({
   menucontainer: {
     width: '100%',
     height: 400,
+    flex: 3
   },
   dish: {
-    width: 100,
-    height: 100,
-    borderStyle : 'solid',
+    width: 200,
+    height:200,
+    ...SHADOWS.dark
   },
   dishdetail: {
     width: 150,
