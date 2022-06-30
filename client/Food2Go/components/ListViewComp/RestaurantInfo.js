@@ -1,5 +1,6 @@
 import { View, Text, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import {RestaurantDescription} from './RestaurantDescription'
 import React from 'react'
 
 const RestaurantInfo = ({data}) => {
@@ -30,8 +31,8 @@ const RestaurantInfo = ({data}) => {
             margin: 1,
           }}
         />
-         <Text>Hello</Text>
       </View>  
+      <RestaurantDescription title = {data.name}></RestaurantDescription>
     </View>
   )
 }
