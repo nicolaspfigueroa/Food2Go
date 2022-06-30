@@ -17,7 +17,7 @@ const authMiddleware = async(req, res, next) => {
         const user = await db.User.findOne({where: {id: id}})
         console.log('user in middleware', user)
         if (!user) return res.sendStatus(401);
-        req.user = user;
+        req.body = user;
         next();
 
     } catch (error) {
