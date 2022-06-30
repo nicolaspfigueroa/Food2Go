@@ -39,7 +39,7 @@ export default function App() {
     <NavigationContainer theme = {theme}>
 
         <AppContext.Provider value = {{isAuthenticated, setIsAuthenticated}}>
-          <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="MapScreen">
+          <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Register">
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register}/>
             <Stack.Screen name="ListView"  component={ListView} />
