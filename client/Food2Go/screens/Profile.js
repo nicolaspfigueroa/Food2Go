@@ -28,6 +28,7 @@ const Profile = () => {
     const getProfile = async () => {
       const accessToken = await getAccessToken();
       const userInfo = await apiServiceJWT.profile(accessToken);
+      console.log('userinfo', userInfo);
       if (userInfo) {
         const { nickname } = userInfo;
         setState((prevState) => {
