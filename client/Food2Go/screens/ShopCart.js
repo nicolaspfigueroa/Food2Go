@@ -1,12 +1,14 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import NavBar from '../components/NavBar/NavBar'
+import NavTop from '../components/NavTop/NavTop';
+import NavBottom from '../components/NavBottom/NavBottom';
 
-const ShopCart = () => {
+const ShopCart = ({ cart, setCart }) => {
   return (
     <View>
+      <NavTop></NavTop>
       <Text>ShopCart</Text>
-      <NavBar></NavBar>
+      <NavBottom></NavBottom>
     </View>
   )
 }

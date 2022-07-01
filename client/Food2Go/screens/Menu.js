@@ -2,6 +2,8 @@ import { StyleSheet, View, Text, Image, SafeAreaView, TouchableWithoutFeedback }
 import React, { useState, useEffect } from 'react'
 import icons from '../constants/icons';
 import  DishService  from '../services/DishService';
+import NavTop from '../components/NavTop/NavTop';
+import NavBottom from '../components/NavBottom/NavBottom';
 
 
 const Menu = ( {route, navigation}) => {
@@ -40,6 +42,7 @@ const getDishes= async () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
+        <NavTop></NavTop>
         <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={icons.goback} style={{width:35,height:35}} /> 
         </TouchableWithoutFeedback> 
         <Text style={styles.txt}>{route.params.restaurant.name}</Text>
@@ -59,6 +62,7 @@ const getDishes= async () => {
       </View>
       <View style={styles.bottom}>
       <Image source={icons.whitecart} style={{width:55,height:55}} />
+      <NavBottom></NavBottom>
       </View>
     </SafeAreaView>
   )
