@@ -1,45 +1,55 @@
 
 import { useNavigation } from "@react-navigation/native";
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
-import { RestaurantService } from '../services/RestaurantService'
+import  RestaurantService  from '../services/RestaurantService'
 import NavBar from "../components/NavBar/NavBar";
 
 
 const MapScreen = ()=> {
   const navigation = useNavigation();
-  const restaurants = [{id:1,"name": "Coctel del Mar", "latitude": 4.70362, "longitude": -74.04885,
-"city":"Bogota","hours":"",
-"description": "Seafood restaurant", "image": "coctel-del-mar.png",
-"address": "Av. Cra 19 #123-26"},
-{id:2,"name": "14 Inkas", "latitude": 4.69903, "longitude": -74.02959,
-    "city":"Bogota","hours":"",
-    "description": "Peruvian restaurant", "image": "14-inkas.png",
-    "address": "Cl. 119b #543"},
-{id:3,"name": "Barricas tapas y Canas", "latitude": 4.69894, "longitude": -74.03861,
-    "city":"Bogota","hours":"",
-    "description": "Spanish restaurant", "image": "barricas-tapas-y-canas.png",
-    "address": "Cl. 119 #11d-15"}
-];
+//   const restaurants = [{id:1,"name": "Coctel del Mar", "latitude": 4.70362, "longitude": -74.04885,
+// "city":"Bogota","hours":"",
+// "description": "Seafood restaurant", "image": "coctel-del-mar.png",
+// "address": "Av. Cra 19 #123-26"},
+// {id:2,"name": "14 Inkas", "latitude": 4.69903, "longitude": -74.02959,
+//     "city":"Bogota","hours":"",
+//     "description": "Peruvian restaurant", "image": "14-inkas.png",
+//     "address": "Cl. 119b #543"},
+// {id:3,"name": "Barricas tapas y Canas", "latitude": 4.69894, "longitude": -74.03861,
+//     "city":"Bogota","hours":"",
+//     "description": "Spanish restaurant", "image": "barricas-tapas-y-canas.png",
+//     "address": "Cl. 119 #11d-15"}
+// ];
 
 //Uncomment this to get the restaurants from RestaurantService
 
-
-// useEffect(() => {
-//   getRestaurants();
-// }, []);
-
-// const [restaurants, setRestaurants] = useState([]);
-
 // const getRestaurants= async () => {
 //   const { res, error} = await RestaurantService.getRestaurants();
-//   if (!error) {
-//     setRestaurants(res);
-//   } else {
-//     setError(res);
-//   }
+//   console.log(res);
 // };
+
+//getRestaurants();
+
+useEffect(() => {
+  getRestaurants();
+}, []);
+
+const [restaurants, setRestaurants] = useState([]);
+
+const getRestaurants= async () => {
+  try {
+    const res = await RestaurantService.getRestaurants();
+    setRestaurants(res);
+    console.log(res);
+    console.log(res[0]);
+    console.log('restaurant  set state', restaurants[0].lat);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
   return (
@@ -59,13 +69,13 @@ const MapScreen = ()=> {
     <Marker
       key={restaurant.id}
       title={restaurant.name}
-      coordinate={{latitude:restaurant.latitude, longitude: restaurant.longitude}}
+      coordinate={{latitude:parseFloat(restaurant.lat), longitude: parseFloat(restaurant.long)}}
       >
       <Callout onPress={() => {navigation.navigate("Menu", {restaurant} )
 }}>
         <View style={styles.imgcontainer}>
             <Text>
-              {restaurant.description}
+              {restaurant.name}
 
             </Text>
         </View> 
