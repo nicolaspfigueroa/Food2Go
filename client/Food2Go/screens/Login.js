@@ -1,5 +1,5 @@
 //no auth required 
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native'
 import {Input} from 'react-native-elements';
 import React, { useState, useContext } from "react";
 import auth from '../utils/auth';
@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
 import { AppContext } from '../App';
 import FocusedStatusBar from '../components/FocusedStatusBar/FocusedStatusBar';
+import assets from '../constants/assets';
 
 const initialState = {
   email: '',
@@ -54,7 +55,40 @@ const validateForm = () => {
     <SafeAreaView>
       <FocusedStatusBar backgroundColor = {"gray"}></FocusedStatusBar>
       <View>
-        <Text>Login</Text>
+        <View style = {{
+          width: "100%", 
+          height: 225,
+          backgroundColor: "blue",
+          marginBottom: 10,
+        }}
+        >
+          <Image 
+            source={assets.homeimage}
+            resizeMode = "cover"
+            style= {{
+              width: "100%",
+              height: "100%",
+            }}
+          >
+          </Image>
+        </View>
+        <Text 
+          style = {{
+            fontSize: 30,
+            fontWeight: '600',
+            margin: 10,
+          }} 
+        >Login
+        </Text>
+        <Text 
+          style = {{
+            fontSize: 15,
+            fontWeight: '300',
+            margin: 10,
+            color: "#737373"
+          }} 
+        >Enter email and password 
+        </Text>
           <Input
             placeholder="name@mail.com"
             name="email"
