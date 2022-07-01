@@ -61,7 +61,6 @@ const getDishes= async () => {
       ))}
       </View>
       <View style={styles.bottom}>
-      <Image source={icons.whitecart} style={{width:55,height:55}} />
       <NavBottom></NavBottom>
       </View>
     </SafeAreaView>
