@@ -35,6 +35,7 @@ export default function App() {
 
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
+  const [cart, setCart] = useState([]);
 
   return (
     <NavigationContainer theme = {theme}>
@@ -54,7 +55,9 @@ export default function App() {
             <Stack.Screen name="Menu" component={Menu} />
             <Stack.Screen name="Dish" component={Dish} />
             <Stack.Screen name="Profile" component={Profile} />
-            <Stack.Screen name="ShopCart" component={ShopCart} />
+            <Stack.Screen name="ShopCart">
+              {props => <ShopCart cart = {cart} setCart = {setCart}/>}
+            </Stack.Screen>
           </Stack.Navigator>
       </NavigationContainer>
 

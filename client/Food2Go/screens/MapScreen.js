@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import  RestaurantService  from '../services/RestaurantService'
-import NavBar from "../components/NavBar/NavBar";
 import icons from "../constants/icons";
+import NavTop from '../components/NavTop/NavTop';
+import NavBottom from '../components/NavBottom/NavBottom';
 
 
 const MapScreen = ()=> {
@@ -55,7 +56,7 @@ const getRestaurants= async () => {
 
   return (
     <View style={styles.container}>
-      
+      <NavTop></NavTop>
       
       <MapView style={styles.map} 
        initialRegion={{
@@ -86,14 +87,7 @@ const getRestaurants= async () => {
 
 
         </MapView>
-        <Image style={styles.shoopimg} 
-                source={icons.greencart} 
-                 />
-    
-        <Image style={styles.img} 
-                source={icons.greenlogo} 
-                 />
-      <NavBar></NavBar>
+      <NavBottom></NavBottom>
     </View>
   );
 }
@@ -115,7 +109,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    height: "84%",
   },
   img: {
     

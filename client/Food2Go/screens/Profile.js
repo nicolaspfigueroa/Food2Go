@@ -4,7 +4,8 @@ import apiServiceJWT from './../services/ApiService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
-import NavBar from '../components/NavBar/NavBar';
+import NavTop from '../components/NavTop/NavTop';
+import NavBottom from '../components/NavBottom/NavBottom';
 
 const initialState = {
   nickname: ''
@@ -48,13 +49,14 @@ const Profile = () => {
 
   return (
     <View>
+      <NavTop></NavTop>
       <Text>Welcome back, {nickname}!</Text>
       <TouchableOpacity onPress = {() => navigation.navigate('Logout')}>
         <Text>
           Logout
         </Text>
       </TouchableOpacity>
-      <NavBar></NavBar>
+      <NavBottom></NavBottom>
     </View>
   )
 }
