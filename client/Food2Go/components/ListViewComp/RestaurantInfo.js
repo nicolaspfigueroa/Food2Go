@@ -1,39 +1,23 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, SafeAreaView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import {RestaurantDescription} from './RestaurantDescription'
+import listViewStyles from '../../constants/styles/ListViewStyles'
 import React from 'react'
 
 const RestaurantInfo = ({data}) => {
-  const navigation = useNavigation()
   return (
-    <View
-      style={{
-        backgroundColor: "white",
-        borderRadius: 5,
-        marginBottom: 1,
-        margin: 2,
-      }}
-    >
-      <View 
-        style={{
-          width: "90%",
-          height: 200,
-        }}
-      >
-        <Image
-          source={data.image}
-          resizeMode = "cover"
-          style= {{
-            width: "100%",
-            height: "100%",
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-            margin: 1,
-          }}
-        />
-      </View>  
-      <RestaurantDescription title = {data.name}></RestaurantDescription>
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={listViewStyles.restaurantlistcontainer}>
+        <View style={listViewStyles.imagecontainer}>
+          <Image
+            source={data.image}
+            resizeMode = "cover"
+            style= {listViewStyles.image}
+          />
+        </View>  
+        <RestaurantDescription title = {data.name}></RestaurantDescription>
+      </View>
+    </SafeAreaView>
   )
 }
 

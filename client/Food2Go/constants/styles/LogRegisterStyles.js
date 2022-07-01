@@ -30,20 +30,11 @@ const logRegisterStyles = StyleSheet.create({
         height: 60,
         backgroundColor: green,
         borderRadius: 30,
-        shadowColor: "#171717",
-        shadowOffset: {
-        width: -2,
-        height: 4
-        },
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-        justifyContent: "center",
-        margin: 10,
+        justifyContent: 'center'
     },
     textInButton: {
         color: "white",
         textAlign: "center", 
-        justifyContent: "center",
         fontSize: 20,
         fontWeight: "700"
     }, 
