@@ -16,11 +16,9 @@ const ListView = () => {
             renderItem = {({item}) => <RestaurantInfo data = {item}></RestaurantInfo>} 
             keyExtractor = {(item) => item.id}
             showsVerticalScrollIndicator = {false}
-            ListHeaderComponent = {<Text>List of Restaurant</Text>}
           />
         </View>
       </View>
-      <NavBar></NavBar>
     </SafeAreaView>
   )
 }
