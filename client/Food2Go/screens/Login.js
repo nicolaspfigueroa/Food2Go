@@ -1,5 +1,5 @@
 //no auth required 
-import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native'
+import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native'
 import {Input} from 'react-native-elements';
 import React, { useState, useContext } from "react";
 import auth from '../utils/auth';
@@ -8,6 +8,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
 import { AppContext } from '../App';
 import FocusedStatusBar from '../components/FocusedStatusBar/FocusedStatusBar';
+import assets from '../constants/assets';
+import logRegisterStyles from '../constants/styles/LogRegisterStyles';
 
 const initialState = {
   email: '',
@@ -51,10 +53,19 @@ const validateForm = () => {
 };
 
   return (
-    <SafeAreaView>
-      <FocusedStatusBar backgroundColor = {"gray"}></FocusedStatusBar>
+    <SafeAreaView style = {{ flex: 1}}>
+      <FocusedStatusBar backgroundColor = {"black"}></FocusedStatusBar>
       <View>
-        <Text>Login</Text>
+        <View style = {logRegisterStyles.header}>
+          <Image 
+            source={assets.homeimage}
+            resizeMode = "cover"
+            style= {logRegisterStyles.banner}
+          >
+          </Image>
+        </View>
+        <Text style = {logRegisterStyles.title}>Login</Text>
+        <Text style = {logRegisterStyles.instructions}>Enter email and password </Text>
           <Input
             placeholder="name@mail.com"
             name="email"
@@ -74,14 +85,16 @@ const validateForm = () => {
               password: value
             }))}
           />
-          <TouchableOpacity disabled={validateForm()} onPress = {handleSubmit}>
-            <Text>
+          <TouchableOpacity disabled={validateForm()} onPress = {handleSubmit}
+            style = {logRegisterStyles.button}>
+            <Text style= {logRegisterStyles.textInButton}>
               Login
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress = {() => navigation.navigate('Register')}>
-            <Text>
-              Register Account
+            <Text style = {logRegisterStyles.bottomText}>
+              Don't have an account yet?
+              <Text style={{color: "#38B000"}}>  Sign up</Text>
             </Text>
           </TouchableOpacity>
       </View>
