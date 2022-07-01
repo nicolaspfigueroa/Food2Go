@@ -52,7 +52,9 @@ export default function App() {
             </Stack.Screen>
             <Stack.Screen name="ListView"  component={ListView} />
             <Stack.Screen name="MapScreen"  component={MapScreen} />
-            <Stack.Screen name="Menu" component={Menu} />
+            <Stack.Screen name="Menu">
+              {props => <Menu setCart = {setCart}/>}
+            </Stack.Screen>
             <Stack.Screen name="Dish" component={Dish} />
             <Stack.Screen name="Profile" component={Profile} />
             <Stack.Screen name="ShopCart">
