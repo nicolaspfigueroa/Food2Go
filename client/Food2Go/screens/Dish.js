@@ -1,4 +1,5 @@
 import { StyleSheet, View, Text, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native'
+import icons from '../constants/icons'
 import React from 'react'
 
 
@@ -7,9 +8,9 @@ const Dish = ( {route, navigation}) => {
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
-                <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={require("./goback.png")} style={{width:50,height:50}} /> 
+                <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={icons.goback} style={{width:50,height:50}} /> 
                 </TouchableWithoutFeedback>
-                <Image source={require("./logo.png")} style={{width:50,height:50, marginRight:10}} />
+                <Image source={icons.whitelogo} style={{width:50,height:50, marginRight:10}} />
             </View>
             <Text>{route.params.dish.name}</Text>
         </SafeAreaView>

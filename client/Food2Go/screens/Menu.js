@@ -1,5 +1,6 @@
 import { StyleSheet, View, Text, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native'
 import React, { useState, useEffect } from 'react'
+import icons from '../constants/icons';
 import  DishService  from '../services/DishService';
 
 
@@ -39,10 +40,10 @@ const getDishes= async () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={require("./wgoback.png")} style={{width:35,height:35}} /> 
+        <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={icons.goback} style={{width:35,height:35}} /> 
         </TouchableWithoutFeedback> 
         <Text style={styles.txt}>{route.params.restaurant.name}</Text>
-        <Image source={require("./logo.png")} style={{width:50,height:50, marginRight:10}} />
+        <Image source={icons.whitelogo} style={{width:50,height:50, marginRight:10}} />
       </View>
       
       <View style={styles.menucontainer}>
@@ -57,7 +58,7 @@ const getDishes= async () => {
       ))}
       </View>
       <View style={styles.bottom}>
-      <Image source={require("./whiteshoopingcart.png")} style={{width:55,height:55}} />
+      <Image source={icons.whitecart} style={{width:55,height:55}} />
       </View>
     </SafeAreaView>
   )
