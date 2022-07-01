@@ -1,37 +1,37 @@
 import { StyleSheet, View, Text, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { DishService } from '../services/DishService';
 
 
 const Menu = ( {route, navigation}) => {
 
-  const dishes = [{"id":1, "name" : "Langostinos arare","restaurant":"Coctel del Mar"  ,
-  "description" : "6 breaded shrimps in a crunchy bed of masago arare.",
-  "image" : "Coctel-del-Mar_langostinos-arare.png",
-"classification" : "appetizers", "price": 26200  },
-{"id":2, "name" : "Spring rolls","restaurant":"Coctel del Mar"  ,
-  "description" : "Crunchy shrimp spring rolls.",
-  "image" : "Coctel-del-Mar_spring-rolls.png",
-"classification" : "appetizers", "price": 16500  },
-{"id":3, "name" : "Salmon rice","restaurant":"Coctel del Mar"  ,
-  "description" : "Wok style rice with fresh vegies and salmon, served with mango sauce and siam albahaca.",
-  "image" : "Coctel-del-Mar_salmon-rice.png",
-"classification" : "rice", "price": 30100  }]
+//   const dishes = [{"id":1, "name" : "Langostinos arare","restaurant":"Coctel del Mar"  ,
+//   "description" : "6 breaded shrimps in a crunchy bed of masago arare.",
+//   "image" : "Coctel-del-Mar_langostinos-arare.png",
+// "classification" : "appetizers", "price": 26200  },
+// {"id":2, "name" : "Spring rolls","restaurant":"Coctel del Mar"  ,
+//   "description" : "Crunchy shrimp spring rolls.",
+//   "image" : "Coctel-del-Mar_spring-rolls.png",
+// "classification" : "appetizers", "price": 16500  },
+// {"id":3, "name" : "Salmon rice","restaurant":"Coctel del Mar"  ,
+//   "description" : "Wok style rice with fresh vegies and salmon, served with mango sauce and siam albahaca.",
+//   "image" : "Coctel-del-Mar_salmon-rice.png",
+// "classification" : "rice", "price": 30100  }]
   
-// useEffect(() => {
-//   getDishes();
-// }, []);
+useEffect(() => {
+  getDishes();
+}, []);
 
-// const [dishes, setDishes] = useState([]);
+const [dishes, setDishes] = useState([]);
 
-// const getDishes= async () => {
-//   const { res, error} = await DishService.getRestaurantDishes(route.params.restaurant.id);
-//   if (!error) {
-//     setDishes(res);
-//   } else {
-//     setError(res);
-//   }
-// };
+const getDishes= async () => {
+  const { res, error} = await DishService.getRestaurantDishes(route.params.restaurant.id);
+  if (!error) {
+    setDishes(res);
+  } else {
+    setError(res);
+  }
+};
   
   return (
     <SafeAreaView style={styles.container}>
