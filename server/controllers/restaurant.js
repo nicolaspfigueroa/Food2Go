@@ -3,6 +3,7 @@ const db = require('../models/index.js');
 exports.getAll = async (req, res) => {
   try {
     const restaurants = await db.Restaurants.findAll();
+    console.log('server', restaurants);
     res.status(201).send(restaurants);
   } catch (error) {
     res.status(500).send({error, message: 'Could not load restaurants' });
