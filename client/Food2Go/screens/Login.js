@@ -9,6 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import { AppContext } from '../App';
 import FocusedStatusBar from '../components/FocusedStatusBar/FocusedStatusBar';
 import assets from '../constants/assets';
+import logRegisterStyles from '../constants/styles/LogRegisterStyles';
 
 const initialState = {
   email: '',
@@ -52,43 +53,19 @@ const validateForm = () => {
 };
 
   return (
-    <SafeAreaView>
-      <FocusedStatusBar backgroundColor = {"gray"}></FocusedStatusBar>
+    <SafeAreaView style = {{ flex: 1}}>
+      <FocusedStatusBar backgroundColor = {"black"}></FocusedStatusBar>
       <View>
-        <View style = {{
-          width: "100%", 
-          height: 225,
-          backgroundColor: "blue",
-          marginBottom: 10,
-        }}
-        >
+        <View style = {logRegisterStyles.header}>
           <Image 
             source={assets.homeimage}
             resizeMode = "cover"
-            style= {{
-              width: "100%",
-              height: "100%",
-            }}
+            style= {logRegisterStyles.banner}
           >
           </Image>
         </View>
-        <Text 
-          style = {{
-            fontSize: 30,
-            fontWeight: '600',
-            margin: 10,
-          }} 
-        >Login
-        </Text>
-        <Text 
-          style = {{
-            fontSize: 15,
-            fontWeight: '300',
-            margin: 10,
-            color: "#737373"
-          }} 
-        >Enter email and password 
-        </Text>
+        <Text style = {logRegisterStyles.title}>Login</Text>
+        <Text style = {logRegisterStyles.instructions}>Enter email and password </Text>
           <Input
             placeholder="name@mail.com"
             name="email"
@@ -108,14 +85,16 @@ const validateForm = () => {
               password: value
             }))}
           />
-          <TouchableOpacity disabled={validateForm()} onPress = {handleSubmit}>
-            <Text>
+          <TouchableOpacity disabled={validateForm()} onPress = {handleSubmit}
+            style = {logRegisterStyles.button}>
+            <Text style= {logRegisterStyles.textInButton}>
               Login
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress = {() => navigation.navigate('Register')}>
-            <Text>
-              Register Account
+            <Text style = {logRegisterStyles.bottomText}>
+              Don't have an account yet?
+              <Text style={{color: "#38B000"}}>  Sign up</Text>
             </Text>
           </TouchableOpacity>
       </View>
