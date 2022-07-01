@@ -6,6 +6,7 @@ import MapView, { Callout, Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import  RestaurantService  from '../services/RestaurantService'
 import NavBar from "../components/NavBar/NavBar";
+import icons from "../constants/icons";
 
 
 const MapScreen = ()=> {
@@ -86,11 +87,11 @@ const getRestaurants= async () => {
 
         </MapView>
         <Image style={styles.shoopimg} 
-                source={require('./greenshoopingcart.png')} 
+                source={icons.greencart} 
                  />
     
         <Image style={styles.img} 
-                source={require('./greenlogo.png')} 
+                source={icons.greenlogo} 
                  />
       <NavBar></NavBar>
     </View>
