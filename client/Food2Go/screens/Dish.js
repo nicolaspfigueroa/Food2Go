@@ -13,7 +13,6 @@ const Dish = ( {route, navigation}) => {
             <View style={styles.header}>
                 <TouchableWithoutFeedback onPress={()=>navigation.goBack()}><Image source={icons.goback} style={{width:50,height:50}} /> 
                 </TouchableWithoutFeedback>
-                <Image source={icons.whitelogo} style={{width:50,height:50, marginRight:10}} />
             </View>
             <Text>{route.params.dish.name}</Text>
           <NavBottom></NavBottom>
