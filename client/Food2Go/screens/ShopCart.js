@@ -31,6 +31,7 @@ const ShopCart = ({ cart, setCart }) => {
       // Set `allowsDelayedPaymentMethods` to true if your business can handle payment
       //methods that complete payment after a delay, like SEPA Debit and Sofort.
       allowsDelayedPaymentMethods: true,
+      merchantDisplayName: 'Food2Go'
     });
     if (!error) {
       setLoading(true);
