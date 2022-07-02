@@ -3,7 +3,7 @@ import { useState, useContext, createContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { StripeProvider } from "@stripe/stripe-react-native";
-
+import { CartProvider , CartContext } from "./context/CartContext";
 import ListView from "./screens/ListView";
 import Login from "./screens/Login";
 import MapScreen from "./screens/MapScreen";
@@ -13,7 +13,9 @@ import Profile from "./screens/Profile";
 import Register from "./screens/Register";
 import ShopCart from "./screens/ShopCart";
 
-export const AppContext = createContext();
+
+
+
 
 const Stack = createStackNavigator();
 
@@ -34,18 +36,21 @@ import Logout from "./screens/Logout";
 
 export default function App() {
 
+//  const { cart , setCart} = useContext(CartContext);
+
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
-  const [cart, setCart] = useState([]);
+  
 
   const STRIPE_PUBLIC_KEY = "pk_test_51LAdEzKpUH6FEDK0Dpi0P8OyggQNCsGsctYqTbH1SLBR2UR46kfIivuaLuaqjxXaVGrESSz1OnbBMrAafXIwBK4n00nUlcuTtF";
 
   return (
     <StripeProvider publishableKey="pk_test_51LAdEzKpUH6FEDK0Dpi0P8OyggQNCsGsctYqTbH1SLBR2UR46kfIivuaLuaqjxXaVGrESSz1OnbBMrAafXIwBK4n00nUlcuTtF">
+      <CartProvider>
       <NavigationContainer theme = {theme}>
+        
 
-
-            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
+            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="MapScreen">
               <Stack.Screen name="Login" >
                 {props => <Login setIsAuthenticated = {setIsAuthenticated}/>}
               </Stack.Screen>
@@ -64,7 +69,9 @@ export default function App() {
                 {props => <ShopCart cart = {cart} setCart = {setCart}/>}
               </Stack.Screen>
             </Stack.Navigator>
+           
         </NavigationContainer>
+      </CartProvider> 
     </StripeProvider>
   );
 }

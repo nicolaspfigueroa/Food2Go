@@ -1,9 +1,10 @@
 import { StyleSheet, View, Text, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect , useContext } from 'react'
 import icons from '../constants/icons';
 import  DishService  from '../services/DishService';
 import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
+import { CartContext } from "../context/CartContext";
 
 
 const Menu = ( {route, navigation}) => {
@@ -25,6 +26,8 @@ useEffect(() => {
   getDishes();
 }, []);
 
+const {cart, setCart} = useContext(CartContext);
+
 const [dishes, setDishes] = useState([]);
 
 const getDishes= async () => {
@@ -38,6 +41,20 @@ const getDishes= async () => {
     console.log(error);
   }
 };
+
+const addDish = (dish) => {
+  let check = false;
+  cart.forEach(item => {
+    if (item.id === dish.id) {
+      check = true;
+      item.quantity = (parseInt(item.quantity)) + 1;
+    }
+  })
+  if (!check) {
+    const item = {...dish, quantity:1};
+    setCart((prevValue) => [...prevValue, item])
+  }
+}   
   
   return (
     <SafeAreaView style={styles.container}>
@@ -51,7 +68,7 @@ const getDishes= async () => {
       
       <View style={styles.menucontainer}>
           {dishes.map((dish) => (
-        <TouchableWithoutFeedback onPress={() => {navigation.navigate("Dish", {dish} )}} key={dish.id}> 
+        <TouchableWithoutFeedback onPress={() => {addDish(dish);}} key={dish.id}> 
           <View    style={styles.dish}>
                 
                   <Text>{dish.name}</Text>
