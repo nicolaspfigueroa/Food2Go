@@ -1,11 +1,29 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Image, SafeAreaView, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import {RestaurantDescription} from './RestaurantDescription'
+import listViewStyles from '../../constants/styles/ListViewStyles'
 
-const RestaurantInfo = () => {
+
+const RestaurantInfo = ({restaurant}) => {
+  const navigation = useNavigation();
+  //
   return (
-    <View>
-      <Text>RestaurantInfo</Text>
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+      <TouchableOpacity onPress={() => {navigation.navigate("Menu", {restaurant} )}}>
+        <View style={listViewStyles.restaurantlistcontainer}>
+          <View style={listViewStyles.imagecontainer}>
+            <Image
+              source={{uri: restaurant.imgUrl
+            }}
+              //'../../assets/images/restaurants/barricas-tapas-y-canas.png'
+              resizeMode = 'contain'
+              style= {listViewStyles.image}
+            />
+          </View>  
+          <RestaurantDescription title = {restaurant.name}></RestaurantDescription>
+        </View>
+      </TouchableOpacity>
+    </SafeAreaView>
   )
 }
 

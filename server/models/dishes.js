@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => sequelize.define('Dishes', {
   price: {
     type: DataTypes.FLOAT,
     allowNull: false
+  },
+  imgUrl: {
+    type: DataTypes.STRING,
+    allowNull: true
   }
 },
 {timestamps: false}

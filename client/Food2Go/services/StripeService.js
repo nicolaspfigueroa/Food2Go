@@ -1,6 +1,6 @@
-const BASE_URL = 'http://localhost:3001/payment';
-
-// possible to refactor into a 'fetch factory' to reduce repetition
+const NGROK = require('../utils/ngrok');
+const BASE_URL = `${NGROK}/payment`
+//const BASE_URL = 'http://localhost:3001/payment';
 
 const stripeService = {};
 
@@ -25,6 +25,23 @@ stripeService.createCheckoutSession = (cart) => {
   .catch(e => {
     console.error(e.error)
   })
+};
+
+stripeService.fetchPaymentSheetParams = async (cart) => {
+  const response = await fetch(`${BASE_URL}/checkout`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(cart)
+  });
+  const { paymentIntent, ephemeralKey, customer} = await response.json();
+
+  return {
+    paymentIntent,
+    ephemeralKey,
+    customer,
+  };
 };
 
 export default stripeService;
