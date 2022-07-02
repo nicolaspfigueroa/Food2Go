@@ -32,7 +32,7 @@ const ListView = () => {
         <View style = {{ zIndex: 0}}>
           <FlatList
             data = {restaurants}
-            renderItem = {({item}) => <RestaurantInfo data = {item}></RestaurantInfo>} 
+            renderItem = {({item}) => <RestaurantInfo restaurant = {item}></RestaurantInfo>} 
             keyExtractor = {(item) => item.id}
             showsVerticalScrollIndicator = {false}
           />
