@@ -1,12 +1,12 @@
 import { View, Text, Button, Alert } from 'react-native'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useStripe } from '@stripe/stripe-react-native/';
 import { useNavigation } from "@react-navigation/native";
 import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
 import CartItem from '../components/Cart/CartItem';
 import stripeService from '../services/StripeService';
-import { CartContext } from '../../context/CartContext';
+import { CartContext } from '../context/CartContext';
 
 
 const ShopCart = () => {
@@ -20,7 +20,7 @@ const ShopCart = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    initializePaymentSheet(cart);
+    initializePaymentSheet(testCart);
   }, []);
 
   const getTotal = (cart) => {

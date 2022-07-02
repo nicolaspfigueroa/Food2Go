@@ -51,7 +51,7 @@ export default function App() {
       <NavigationContainer theme = {theme}>
         
 
-            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="MapScreen">
+            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
               <Stack.Screen name="Login" >
                 {props => <Login setIsAuthenticated = {setIsAuthenticated}/>}
               </Stack.Screen>
@@ -63,12 +63,10 @@ export default function App() {
               </Stack.Screen>
               <Stack.Screen name="ListView"  component={ListView} />
               <Stack.Screen name="MapScreen"  component={MapScreen} />
-              <Stack.Screen name="Menu"  component={NewMenu} />
+              <Stack.Screen name="Menu"  component={Menu} />
               <Stack.Screen name="Dish" component={Dish} />
               <Stack.Screen name="Profile" component={Profile} />
-              <Stack.Screen name="ShopCart">
-                {props => <ShopCart cart = {cart} setCart = {setCart}/>}
-              </Stack.Screen>
+              <Stack.Screen name="ShopCart" component={ShopCart} />
             </Stack.Navigator>
            
         </NavigationContainer>
