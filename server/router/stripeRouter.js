@@ -39,7 +39,7 @@ router.post('/checkout', async (req, res) => {
     {apiVersion: '2020-08-27'}
   );
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 1099,
+    amount: req.body[req.body.length-1],
     currency: 'eur',
     customer: customer.id,
     automatic_payment_methods: {
