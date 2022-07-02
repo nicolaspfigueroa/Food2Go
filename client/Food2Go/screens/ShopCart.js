@@ -83,7 +83,7 @@ const ShopCart = ({ cart, setCart }) => {
   return (
     <View>
       <NavTop></NavTop>
-      <Text>ShopCart</Text>
+      <Text style={{fontSize: 24, fontWeight: '700', alignSelf: 'center', margin: 10}}>Your Cart</Text>
       {cart.map((dish) => {
         <CartItem key = {dish.id} dish = {dish} handleDeleteCart = {handleDeleteCart} ></CartItem>
       })}

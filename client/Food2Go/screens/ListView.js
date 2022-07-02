@@ -2,7 +2,6 @@ import React, {useEffect, useState }from 'react'
 import { View, SafeAreaView, FlatList} from 'react-native';
 import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
-import { RestaurantData } from '../components/ListViewComp/mockdb';
 import RestaurantInfo from '../components/ListViewComp/RestaurantInfo';
 import restaurantService from '../services/RestaurantService';
 
