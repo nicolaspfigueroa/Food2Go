@@ -44,6 +44,7 @@ export default function App() {
     <StripeProvider publishableKey="pk_test_51LAdEzKpUH6FEDK0Dpi0P8OyggQNCsGsctYqTbH1SLBR2UR46kfIivuaLuaqjxXaVGrESSz1OnbBMrAafXIwBK4n00nUlcuTtF">
       <NavigationContainer theme = {theme}>
 
+
             <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
               <Stack.Screen name="Login" >
                 {props => <Login setIsAuthenticated = {setIsAuthenticated}/>}
@@ -65,6 +66,5 @@ export default function App() {
             </Stack.Navigator>
         </NavigationContainer>
     </StripeProvider>
-
   );
 }
