@@ -6,7 +6,7 @@ import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
 
 
-const Menu = ( {route, navigation, cart, setCart}) => {
+const Menu = ( {route, navigation}) => {
 
 //   const dishes = [{"id":1, "name" : "Langostinos arare","restaurant":"Coctel del Mar"  ,
 //   "description" : "6 breaded shrimps in a crunchy bed of masago arare.",
