@@ -27,12 +27,13 @@ stripeService.createCheckoutSession = (cart) => {
   })
 };
 
-stripeService.fetchPaymentSheetParams = async () => {
+stripeService.fetchPaymentSheetParams = async (cart) => {
   const response = await fetch(`${BASE_URL}/checkout`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
+    body: JSON.stringify(cart)
   });
   const { paymentIntent, ephemeralKey, customer} = await response.json();
 
