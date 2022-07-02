@@ -84,8 +84,6 @@ const getRestaurants= async () => {
       </Callout>      
     </Marker>
   ))}
-
-
         </MapView>
       <NavBottom></NavBottom>
     </View>
