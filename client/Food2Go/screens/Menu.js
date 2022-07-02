@@ -84,38 +84,6 @@ const addDish = (dish) => {
   )
 }
 
-const SHADOWS = {
-  light: {
-    shadowColor: 'gray',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-    elevation: 3,
-  },
-  medium: {
-    shadowColor: 'gray',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7,
-  },
-  dark: {
-    shadowColor: 'gray',
-    shadowOffset: {
-      width: 0,
-      height: 7,
-    },
-    shadowOpacity: 0.41,
-    shadowRadius: 9.11,
-    elevation: 14,
-  },
-};
 
 
 const styles = StyleSheet.create({
@@ -138,19 +106,15 @@ const styles = StyleSheet.create({
     height :70,
     width: '100%',
   },
-  txt: { color: 'white',  fontSize: 20,
-  fontWeight: "bold"},
+  txt: { color: 'black',  fontSize: 20,
+  fontWeight: "600"},
   bottom: {
     flex: .6,
     backgroundColor: '#38b000',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-  }
-
-
-
-,
+  },
 
   tittle: {
     flex :1,
@@ -169,7 +133,6 @@ const styles = StyleSheet.create({
   dish: {
     width: 200,
     height:200,
-    ...SHADOWS.dark
   },
   dishdetail: {
     width: 150,

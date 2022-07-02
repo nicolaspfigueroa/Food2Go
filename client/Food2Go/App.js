@@ -12,6 +12,7 @@ import Dish from "./screens/Dish";
 import Profile from "./screens/Profile";
 import Register from "./screens/Register";
 import ShopCart from "./screens/ShopCart";
+import NewMenu from "./screens/NewMenu";
 
 
 
@@ -62,7 +63,7 @@ export default function App() {
               </Stack.Screen>
               <Stack.Screen name="ListView"  component={ListView} />
               <Stack.Screen name="MapScreen"  component={MapScreen} />
-              <Stack.Screen name="Menu"  component={Menu} />
+              <Stack.Screen name="Menu"  component={NewMenu} />
               <Stack.Screen name="Dish" component={Dish} />
               <Stack.Screen name="Profile" component={Profile} />
               <Stack.Screen name="ShopCart">
