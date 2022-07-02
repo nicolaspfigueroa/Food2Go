@@ -13,7 +13,7 @@ const RestaurantInfo = ({restaurant}) => {
         <View style={listViewStyles.restaurantlistcontainer}>
           <View style={listViewStyles.imagecontainer}>
             <Image
-              source={{uri: 'https://media-cdn.tripadvisor.com/media/photo-s/1c/05/db/e7/barricas-tapas-canas.jpg'
+              source={{uri: restaurant.imgUrl
             }}
               //'../../assets/images/restaurants/barricas-tapas-y-canas.png'
               resizeMode = 'contain'
