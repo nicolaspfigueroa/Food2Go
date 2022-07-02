@@ -6,9 +6,13 @@ import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
 import CartItem from '../components/Cart/CartItem';
 import stripeService from '../services/StripeService';
+import { CartContext } from '../../context/CartContext';
 
-const ShopCart = ({ cart, setCart }) => {
 
+const ShopCart = () => {
+
+  const {cart, setCart} = useContext(CartContext); 
+  
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
   const [loading, setLoading] = useState(false);
   const testCart = [{id: 1, restaurantId: 2, name: 'Sushi', price: 26200}, {id: 2, restaurantId: 2, name: 'Sushi', price: 36200}];
@@ -16,7 +20,7 @@ const ShopCart = ({ cart, setCart }) => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    initializePaymentSheet(testCart);
+    initializePaymentSheet(cart);
   }, []);
 
   const getTotal = (cart) => {

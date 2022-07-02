@@ -19,6 +19,7 @@ const NavBottom = () => {
       </TouchableOpacity>
       <Text>{cart.length}</Text>
       <TouchableOpacity onPress = {() => navigation.navigate('ShopCart')}>  
+        
         <Image source={icons.cart} style={{width:66,height:66, marginBottom:15}} />
       </TouchableOpacity>
       
