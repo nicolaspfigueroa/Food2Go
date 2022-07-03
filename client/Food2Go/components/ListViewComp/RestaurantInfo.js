@@ -15,7 +15,6 @@ const RestaurantInfo = ({restaurant}) => {
             <Image
               source={{uri: restaurant.imgUrl
             }}
-              //'../../assets/images/restaurants/barricas-tapas-y-canas.png'
               resizeMode = 'contain'
               style= {listViewStyles.image}
             />
