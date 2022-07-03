@@ -6,6 +6,7 @@ import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
 import DishInfo from '../components/MenuComp/DishInfo';
 import MenuStyles from '../constants/styles/MenuStyles';
+import { CartContext } from "../context/CartContext";
 
 
 const NewMenu = ( {route, navigation}) => {
@@ -13,6 +14,8 @@ const NewMenu = ( {route, navigation}) => {
 useEffect(() => {
   getDishes();
 }, []);
+
+const {cart, setCart} = useContext(CartContext);
 
 const [dishes, setDishes] = useState([]);
 
