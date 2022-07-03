@@ -4,6 +4,8 @@ import icons from '../constants/icons';
 import  DishService  from '../services/DishService';
 import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
+import DishInfo from '../components/MenuComp/DishInfo';
+import MenuStyles from '../constants/styles/MenuStyles';
 
 
 const NewMenu = ( {route, navigation}) => {
@@ -31,10 +33,10 @@ const getDishes= async () => {
     <NavTop></NavTop>
     <View style={{flex: 1}}>
       <View style = {{ zIndex: 0}}>
-        <Text style={{fontSize: 20, fontWeight: '600', alignSelf: 'center'}}>{route.params.restaurant.name}</Text>
+        <Text style={MenuStyles.restaurantTitle}>{route.params.restaurant.name}</Text>
         <FlatList
           data = {dishes}
-          renderItem = {({item}) => <Text>{item.name}</Text>} 
+          renderItem = {({item}) => <DishInfo dish = {item}></DishInfo>} 
           keyExtractor = {(item) => item.id}
           showsVerticalScrollIndicator = {false}
         />

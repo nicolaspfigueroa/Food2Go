@@ -39,8 +39,9 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-     
-      height :40,
+      borderTopEndRadius: 15,
+      borderTopStartRadius: 15,
+      height :50,
       width: '100%',
     }
 })
