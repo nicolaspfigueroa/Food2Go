@@ -51,7 +51,7 @@ export default function App() {
       <NavigationContainer theme = {theme}>
         
 
-            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login
+            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Register
             ">
               <Stack.Screen name="Login" >
                 {props => <Login setIsAuthenticated = {setIsAuthenticated}/>}
