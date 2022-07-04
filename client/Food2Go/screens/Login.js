@@ -61,10 +61,15 @@ const validateForm = () => {
             source={assets.homeimage}
             resizeMode = "cover"
             style= {logRegisterStyles.banner}
-          >
-          </Image>
+          />
+          <Image source={assets.food2go}
+          style= {logRegisterStyles.food2go}
+          />
+          <Image source={assets.slogan}
+          style= {logRegisterStyles.slogan}
+          />
         </View>
-        <Text style = {logRegisterStyles.title}>Login</Text>
+        <Text style = {logRegisterStyles.title}>Login</Text>  
         <Text style = {logRegisterStyles.instructions}>Enter email and password </Text>
           <Input
             placeholder="name@mail.com"
@@ -87,9 +92,7 @@ const validateForm = () => {
           />
           <TouchableOpacity disabled={validateForm()} onPress = {handleSubmit}
             style = {logRegisterStyles.button}>
-            <Text style= {logRegisterStyles.textInButton}>
-              Login
-            </Text>
+            <Image source={assets.confirm} style= {logRegisterStyles.imgInButton}/>
           </TouchableOpacity>
           <TouchableOpacity onPress = {() => navigation.navigate('Register')}>
             <Text style = {logRegisterStyles.bottomText}>

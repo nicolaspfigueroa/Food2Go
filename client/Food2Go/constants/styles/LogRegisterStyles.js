@@ -14,34 +14,53 @@ const logRegisterStyles = StyleSheet.create({
         height: "100%",
     },
     title: {
-        fontSize: 30,
+        fontSize: 20,
         fontWeight: '600',
         margin: 10,
+        marginLeft: 20
+    },  
+    food2go: {
+        position : "absolute",
+        marginTop: 60,
+        height: 70,
+        width: 120,
+        marginLeft: 10,
+        zIndex: 10,
+
     }, 
+    slogan: {
+        position : "absolute",
+        marginTop: 120,
+        height: 50,
+        width: 90,
+        marginLeft: 22,
+        zIndex: 10,
+
+    },
     instructions: {
-        fontSize: 15,
+        fontSize: 14,
         fontWeight: '300',
         margin: 10,
+        
         color: gray
     }, 
     button: {
         alignSelf: "center",
-        width: 200,
-        height: 60,
+        width: 180,
+        height: 45,
         backgroundColor: green,
         borderRadius: 30,
         justifyContent: 'center'
     },
-    textInButton: {
-        color: "white",
-        textAlign: "center", 
-        fontSize: 20,
-        fontWeight: "700"
+    imgInButton: {
+        width: 77,
+        height: 40,
+        marginLeft: 50
     }, 
     bottomText : {
         alignSelf: 'center',
         margin: 10,
-        paddingTop: 20
+        paddingTop: 15
     }
 })
 
