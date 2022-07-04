@@ -14,14 +14,11 @@ const logRegisterStyles = StyleSheet.create({
         height: "100%",
     },
     title: {
-        position : "absolute",
-        marginTop: 240,
-        height: 44,
-        width: 85,
-        marginLeft: 20,
-        zIndex: 10,
-
-    }, 
+        fontSize: 20,
+        fontWeight: '600',
+        margin: 10,
+        marginLeft: 20
+    },  
     food2go: {
         position : "absolute",
         marginTop: 60,
@@ -34,9 +31,9 @@ const logRegisterStyles = StyleSheet.create({
     slogan: {
         position : "absolute",
         marginTop: 120,
-        height: 80,
-        width: 120,
-        marginLeft: 30,
+        height: 50,
+        width: 90,
+        marginLeft: 22,
         zIndex: 10,
 
     },
@@ -44,7 +41,7 @@ const logRegisterStyles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '300',
         margin: 10,
-        marginTop:60,
+        
         color: gray
     }, 
     button: {

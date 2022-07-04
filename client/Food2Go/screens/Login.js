@@ -69,7 +69,7 @@ const validateForm = () => {
           style= {logRegisterStyles.slogan}
           />
         </View>
-        <Image style = {logRegisterStyles.title}  source={assets.login}/>
+        <Text style = {logRegisterStyles.title}>Login</Text>  
         <Text style = {logRegisterStyles.instructions}>Enter email and password </Text>
           <Input
             placeholder="name@mail.com"
