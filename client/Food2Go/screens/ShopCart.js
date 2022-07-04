@@ -23,8 +23,12 @@ const ShopCart = () => {
 
   useEffect(() => {
     //let totalPrice = [100];
-
-  }, []);
+    if (cart.length > 0) {
+      let totalPrice = [getTotal(cart)];
+      console.log(totalPrice);
+      initializePaymentSheet(totalPrice);
+    };
+  }, [cart]);
 
   const getTotal = (cart) => {
     let total = 0;
@@ -75,11 +79,6 @@ const ShopCart = () => {
       setCart([]);
       navigation.navigate("Profile");
     }
-  };
-
-  if (cart.length > 0) {
-    let totalPrice = [getTotal(cart)];
-    initializePaymentSheet(totalPrice);
   };
 
   return (
