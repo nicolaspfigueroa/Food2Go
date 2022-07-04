@@ -1,21 +1,17 @@
 import { FlatList, View, Text, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import icons from '../constants/icons';
 import  DishService  from '../services/DishService';
 import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
 import DishInfo from '../components/MenuComp/DishInfo';
 import MenuStyles from '../constants/styles/MenuStyles';
-import { CartContext } from "../context/CartContext";
-
 
 const NewMenu = ( {route, navigation}) => {
   
 useEffect(() => {
   getDishes();
 }, []);
-
-const {cart, setCart} = useContext(CartContext);
 
 const [dishes, setDishes] = useState([]);
 
@@ -29,7 +25,7 @@ const getDishes= async () => {
   } catch (error) {
     console.log(error);
   }
-};
+}; 
   
   return (
     <SafeAreaView style={{flex: 1}}>

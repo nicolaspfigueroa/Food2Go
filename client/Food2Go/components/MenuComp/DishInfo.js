@@ -15,7 +15,7 @@ const DishInfo = ({dish}) => {
          style = {MenuStyles.image}
         />
       </View>
-      <DishDescription title = {dish.name} price = {dish.price}></DishDescription>
+      <DishDescription dish = {dish}></DishDescription>
       </View>
     </SafeAreaView>
   )
