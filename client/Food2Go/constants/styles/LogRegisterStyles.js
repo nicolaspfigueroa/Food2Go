@@ -17,7 +17,7 @@ const logRegisterStyles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '600',
         margin: 10,
-        marginLeft: 20
+        marginLeft: 10
     },  
     food2go: {
         position : "absolute",
