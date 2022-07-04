@@ -4,8 +4,9 @@ const CartContext = React.createContext();
 
 const CartProvider = ({children})=>{
     const [cart, setCart]= useState([]);
+    const [numInCart, setNum]= useState(0);
     return (
-        <CartContext.Provider value={{cart, setCart}}>
+        <CartContext.Provider value={{cart, setCart, numInCart, setNum}}>
             {children}
         </CartContext.Provider>
 

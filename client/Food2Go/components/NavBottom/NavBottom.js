@@ -10,14 +10,14 @@ const NavBottom = () => {
 
   const navigation = useNavigation();
 
-  const { cart } =useContext(CartContext);
+  const { numInCart } =useContext(CartContext);
 
   return (
     <View style={styles.bottom}>
       <TouchableOpacity onPress = {() => navigation.navigate('ListView')}>        
             <Image source={icons.list} style={{width:35,height:35, marginLeft:15}} />
       </TouchableOpacity>
-      {cart.length>0 &&<Image style ={styles.num} source={icons[`n${cart.length}`]}/>}
+      {numInCart>0 &&<Image style ={styles.num} source={icons[`n${numInCart}`]}/>}
       <TouchableOpacity onPress = {() => navigation.navigate('ShopCart')}>  
         
         <Image source={icons.cart} style={{width:66,height:66, marginBottom:15}} />
