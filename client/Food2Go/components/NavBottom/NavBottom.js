@@ -17,7 +17,7 @@ const NavBottom = () => {
       <TouchableOpacity onPress = {() => navigation.navigate('ListView')}>        
             <Image source={icons.list} style={{width:35,height:35, marginLeft:15}} />
       </TouchableOpacity>
-      <Text>{cart.length}</Text>
+      {cart.length>0 &&<Image style ={styles.num} source={icons[`n${cart.length}`]}/>}
       <TouchableOpacity onPress = {() => navigation.navigate('ShopCart')}>  
         
         <Image source={icons.cart} style={{width:66,height:66, marginBottom:15}} />
@@ -39,9 +39,20 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-     
-      height :40,
+      borderTopEndRadius: 15,
+      borderTopStartRadius: 15,
+      height :50,
       width: '100%',
+    },
+
+    num :{
+      position: 'absolute',
+      zIndex: 10,
+      height: 30,
+      width: 30,
+      left: '52%',
+      bottom: '55%'
     }
+
 })
 export default NavBottom

@@ -12,7 +12,6 @@ import Dish from "./screens/Dish";
 import Profile from "./screens/Profile";
 import Register from "./screens/Register";
 import ShopCart from "./screens/ShopCart";
-import NewMenu from "./screens/NewMenu";
 
 
 
@@ -51,7 +50,8 @@ export default function App() {
       <NavigationContainer theme = {theme}>
         
 
-            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
+            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Register
+            ">
               <Stack.Screen name="Login" >
                 {props => <Login setIsAuthenticated = {setIsAuthenticated}/>}
               </Stack.Screen>

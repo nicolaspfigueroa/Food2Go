@@ -21,16 +21,16 @@ const NavTop = () => {
 
 const styles = StyleSheet.create({   
     header: {
-      
       backgroundColor: '#38b000',
       fontSize: '10px',
       fontColor: '#fff',
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-     
-      height :70,
+      height :50,
       width: '100%',
+      borderBottomEndRadius: 15,
+      borderBottomStartRadius: 15
     }
 })
 export default NavTop

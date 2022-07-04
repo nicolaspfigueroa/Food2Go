@@ -35,7 +35,7 @@ const listViewStyles = StyleSheet.create({
         color: "#CBCBCB"
     },
     restaurantlistcontainer : {
-        backgroundColor: "white",
+        backgroundColor: "transparent",
         borderRadius: 5,
         marginBottom: 1,
         margin: 2,

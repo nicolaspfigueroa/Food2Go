@@ -28,6 +28,8 @@ stripeService.createCheckoutSession = (cart) => {
 };
 
 stripeService.fetchPaymentSheetParams = async (cart) => {
+  console.log(cart);
+  console.log(JSON.stringify(cart));
   const response = await fetch(`${BASE_URL}/checkout`, {
     method: 'POST',
     headers: {
