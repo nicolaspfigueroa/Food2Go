@@ -5,7 +5,8 @@ import { CartContext } from "../../context/CartContext";
 
 const DishDescription = ({dish}) => {
 
-  const {cart, setCart} = useContext(CartContext);
+  const {cart, setCart, numInCart, setNum} = useContext(CartContext);
+
 
   const addDish = (dish) => {
     let check = false;
@@ -19,6 +20,7 @@ const DishDescription = ({dish}) => {
       const item = {...dish, quantity:1};
       setCart((prevValue) => [...prevValue, item])
     }
+    setNum(prevValue => prevValue +1 );
     console.log(cart);
   };
 
