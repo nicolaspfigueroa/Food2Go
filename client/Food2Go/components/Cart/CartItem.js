@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const CartItem = ({ dish, handleDeleteCart }) => {
+const CartItem = ({ item, handleDeleteCart }) => {
   return (
     <View>
-      <Text>CartItem</Text>
-      <Text>{dish.name}</Text>
-      <Text>{dish.price}</Text>
+      <Text>{item.name}</Text>
+      <Text>{item.price}</Text>
+      <Text>{item.quantity}</Text>
     </View>
   )
 }

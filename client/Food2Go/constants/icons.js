@@ -7,6 +7,7 @@ import map from '../assets/images/icons/mapimage.png';
 import list from '../assets/images/icons/listimage.png';
 import cart from '../assets/images/icons/shopcart.png';
 import profile from '../assets/images/icons/profile.png';
+import n1 from '../assets/images/icons/1.png'
 
 export default {
     blackcart,
@@ -17,5 +18,6 @@ export default {
     list,
     cart,
     map,
-    profile
+    profile,
+    n1
 }

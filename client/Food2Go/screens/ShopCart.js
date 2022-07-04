@@ -1,4 +1,4 @@
-import { View, Text, Button, Alert } from 'react-native'
+import { FlatList, View, SafeAreaView, Text, Button, Alert } from 'react-native'
 import React, { useEffect, useState, useContext } from 'react';
 import { useStripe } from '@stripe/stripe-react-native/';
 import { useNavigation } from "@react-navigation/native";
@@ -6,6 +6,8 @@ import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
 import CartItem from '../components/Cart/CartItem';
 import stripeService from '../services/StripeService';
+import DishInfo from '../components/MenuComp/DishInfo';
+import MenuStyles from '../constants/styles/MenuStyles';
 import { CartContext } from '../context/CartContext';
 
 
@@ -85,12 +87,20 @@ const ShopCart = () => {
   };
 
   return (
-    <View>
+    <SafeAreaView style = {{flex: 1}}>
       <NavTop></NavTop>
       <Text style={{fontSize: 24, fontWeight: '700', alignSelf: 'center', margin: 10}}>Your Cart</Text>
-      {cart.map((dish) => {
-        <CartItem key = {dish.id} dish = {dish} handleDeleteCart = {handleDeleteCart} ></CartItem>
-      })}
+      <View style={{flex: 1}}>
+      <View style = {{ zIndex: 0}}>
+        <Text></Text>
+        <FlatList
+          data = {cart}
+          renderItem = {({item}) => <CartItem item = {item}></CartItem>} 
+          keyExtractor = {(item) => item.id}
+          showsVerticalScrollIndicator = {false}
+        />
+      </View>
+    </View>
       <Button
         variant="primary"
         disabled={!loading}
@@ -98,7 +108,7 @@ const ShopCart = () => {
         onPress={openPaymentSheet}
       />
       <NavBottom></NavBottom>
-    </View>
+    </SafeAreaView>
   )
 }
 
