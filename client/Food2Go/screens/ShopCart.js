@@ -74,18 +74,6 @@ const ShopCart = () => {
     }
   };
 
-
-
-
-  const handleDeleteCart = (id) => {
-    console.log(id);
-    console.log(cart);
-    setCart((prevValue) => {
-      const allButId = prevValue.filter((dish) => dish.id !== id);
-      return allButId;
-    });
-  };
-
   return (
     <SafeAreaView style = {{flex: 1}}>
       <NavTop></NavTop>
