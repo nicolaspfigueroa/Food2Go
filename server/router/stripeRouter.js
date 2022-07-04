@@ -33,13 +33,14 @@ router.post('/create-checkout-session', async (req, res) => {
 
 router.post('/checkout', async (req, res) => {
   // Use an existing Customer ID if this is a returning customer.
+  console.log(req.body);
   const customer = await stripe.customers.create();
   const ephemeralKey = await stripe.ephemeralKeys.create(
     {customer: customer.id},
     {apiVersion: '2020-08-27'}
   );
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: req.body[req.body.length-1],
+    amount: req.body[0],
     currency: 'eur',
     customer: customer.id,
     automatic_payment_methods: {

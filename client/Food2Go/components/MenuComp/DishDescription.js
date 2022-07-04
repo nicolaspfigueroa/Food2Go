@@ -13,6 +13,7 @@ const DishDescription = ({dish}) => {
       if (item.id === dish.id) {
         check = true;
         item.quantity = (parseInt(item.quantity)) + 1;
+        setCart((prevValue) => [...prevValue]);
       }
     })
     if (!check) {
