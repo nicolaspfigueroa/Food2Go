@@ -99,7 +99,7 @@ const ShopCart = () => {
       </View>
         <View style = {ShopCartStyles.totalPriceContainer}>
           <Text style={ShopCartStyles.leftText}>Total Amount:</Text>
-          <Text style={ShopCartStyles.rightText}>Total pesos</Text>
+          <Text style={ShopCartStyles.rightText}>$ {(getTotal(cart)/100).toFixed(2)}</Text>
       </View>
         <TouchableOpacity 
           onPress={openPaymentSheet}
