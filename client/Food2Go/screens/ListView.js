@@ -18,7 +18,6 @@ const ListView = () => {
     try {
       const res = await restaurantService.getRestaurants();
       setRestaurants(res);
-      console.log(res);
     } catch (error) {
       console.log(error);
     }

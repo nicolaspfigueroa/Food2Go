@@ -11,8 +11,6 @@ const CartItem = ({ item }) => {
   const {cart, setCart} = useContext(CartContext);
 
   const handleDeleteCart = (id) => {
-    console.log(id);
-    console.log(cart);
     setCart((prevValue) => {
       const allButId = prevValue.filter((dish) => dish.id !== id);
       return allButId;

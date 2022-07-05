@@ -1,12 +1,11 @@
 //no auth required 
 import { View, Text, TouchableOpacity, Image, SafeAreaView } from 'react-native'
 import {Input} from 'react-native-elements';
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import auth from '../utils/auth';
 import apiServiceJWT from './../services/ApiService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
-import { AppContext } from '../App';
 import logRegisterStyles from '../constants/styles/LogRegisterStyles';
 import assets from '../constants/assets';
 
@@ -21,26 +20,11 @@ const Register = (props) => {
 
   const navigation = useNavigation();
 
-  //const {isAuthenticated, setIsAuthenticated} = useContext(AppContext);
-
-  // const handleChange = (e) => {
-  //   console.log(e);
-  //   const { name, value } = e.target;
-  //   setState((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // };
-
   const handleSubmit = async () => {
     // Check the client-session to see how to handle redirects
-    // REMOVE-START
-
-    //e.preventDefault();
     const { email, password, nickname } = state;
     const user = { email, password, nickname};
     const res = await apiServiceJWT.register(user);
-    console.log(res);
     if (res.error) {
       alert(`${res.message}`);
       setState(initialState);

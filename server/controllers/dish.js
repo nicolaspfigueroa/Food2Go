@@ -12,9 +12,7 @@ exports.getAll = async (req, res) => {
 exports.getAllRestaurant = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log('server', id)
     const dishes = await db.Dishes.findAll({where: {restaurantId: id}});
-    console.log(dishes);
     res.status(201).send(dishes);
   } catch (error) {
     res.status(500).send({error, message: 'Could not load dishes' });

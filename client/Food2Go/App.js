@@ -1,17 +1,17 @@
-
-import { useState, useContext, createContext } from "react";
+import { useState } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { StripeProvider } from "@stripe/stripe-react-native";
-import { CartProvider , CartContext } from "./context/CartContext";
+import { CartProvider } from "./context/CartContext";
 import ListView from "./screens/ListView";
 import Login from "./screens/Login";
 import MapScreen from "./screens/MapScreen";
 import Menu from "./screens/Menu";
-import Dish from "./screens/Dish";
 import Profile from "./screens/Profile";
 import Register from "./screens/Register";
 import ShopCart from "./screens/ShopCart";
+import auth from './utils/auth';
+import Logout from "./screens/Logout";
 
 
 
@@ -28,10 +28,7 @@ const theme = {
 }
 
 
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import auth from './utils/auth';
-import Logout from "./screens/Logout";
+
 
 
 export default function App() {
@@ -65,7 +62,6 @@ export default function App() {
               <Stack.Screen name="ListView"  component={ListView} />
               <Stack.Screen name="MapScreen"  component={MapScreen} />
               <Stack.Screen name="Menu"  component={Menu} />
-              <Stack.Screen name="Dish" component={Dish} />
               <Stack.Screen name="Profile" component={Profile} />
               <Stack.Screen name="ShopCart" component={ShopCart} />
             </Stack.Navigator>
