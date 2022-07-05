@@ -13,8 +13,7 @@ const RestaurantInfo = ({restaurant}) => {
         <View style={listViewStyles.restaurantlistcontainer}>
           <View style={listViewStyles.imagecontainer}>
             <Image
-              source={{uri: restaurant.imgUrl
-            }}
+              source={{uri: restaurant.imgUrl}}
               resizeMode = 'contain'
               style= {listViewStyles.image}
             />

@@ -5,7 +5,7 @@ import { CartContext } from "../../context/CartContext";
 
 const DishDescription = ({dish}) => {
 
-  const {cart, setCart, numInCart, setNum} = useContext(CartContext);
+  const {cart, setCart, setNum} = useContext(CartContext);
 
 
   const addDish = (dish) => {
