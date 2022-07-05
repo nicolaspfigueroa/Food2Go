@@ -1,4 +1,3 @@
-//no auth required 
 import { View, Text, TouchableOpacity, SafeAreaView, Image } from 'react-native'
 import {Input} from 'react-native-elements';
 import React, { useState, useContext } from "react";
@@ -6,7 +5,6 @@ import auth from '../utils/auth';
 import apiServiceJWT from './../services/ApiService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
-import { AppContext } from '../App';
 import FocusedStatusBar from '../components/FocusedStatusBar/FocusedStatusBar';
 import assets from '../constants/assets';
 import logRegisterStyles from '../constants/styles/LogRegisterStyles';

@@ -1,6 +1,5 @@
 import { FlatList, View, Text, Image, SafeAreaView, TouchableWithoutFeedback } from 'react-native'
 import React, { useState, useEffect, useContext } from 'react'
-import icons from '../constants/icons';
 import  DishService  from '../services/DishService';
 import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';

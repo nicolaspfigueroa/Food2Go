@@ -20,7 +20,6 @@ const ShopCart = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    //let totalPrice = [100];
     if (cart.length > 0) {
       let totalPrice = [getTotal(cart)];
       initializePaymentSheet(totalPrice);
