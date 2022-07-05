@@ -28,22 +28,22 @@ const Logout = (props) => {
     <View style={styles.container}>
       <Image source ={icons.greenlogo} style={styles.image}/>
       <View style={styles.confirmbox}>
-        <Text>Are you sure you want to log out?</Text>
+        <Text  style={{fontWeight: '300', fontSize: 15, alignSelf: 'center', margin: 20 }}>Are you sure you want to log out?</Text>
         
       </View>
       <View style = {styles.optionsContainer}>
         <TouchableOpacity onPress = {handleClick}>
-          <Text>
-            Yes
-          </Text>
+          <View style = {styles.button}>
+          <Image source={icons.yes}  style={styles.yn}/>
+          </View>
         
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => navigation.navigate('Profile')}>
-          <Text>
-            No
-          </Text>
+        <View style = {styles.button}>
+            <Image source={icons.no} style={styles.yn}/>
+          </View>
         </TouchableOpacity>
-        </View>
+      </View>
     </View>
   )
 }
@@ -61,16 +61,38 @@ const styles = StyleSheet.create({
     
     
   },
+  confirmbox: {
+    marginTop : 20,
+    borderWidth: 1.5, 
+    backgroundColor:'#C0C0C0',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#fff'
+ 
+  },
   optionsContainer: {
+    marginTop : 20,
     flex: 0.5,
     flexDirection: 'row',
-  },
-  confirmbox :{
+
+   
     
-    justifyContent: 'center',
-    height: '40%',
-    width: '40%',
-    borderStyle: 'solid',
+  },
+ 
+  yn :{
+    marginLeft: 10,
+    width: 40,
+    height: 40,
+  },
+  button : {
+    marginRight: 30,
+    width: '80%',
+    marginLeft: 10,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#C0C0C0'
+
   }
+
 })  
 export default Logout

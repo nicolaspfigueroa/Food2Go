@@ -19,6 +19,8 @@ import n9 from "../assets/images/icons/9.png"
 import n10 from "../assets/images/icons/10.png"
 import n11 from "../assets/images/icons/11.png"
 import favs from "../assets/images/icons/favs.png"
+import yes from "../assets/images/icons/yes.png"
+import no from "../assets/images/icons/no.png"
 
 
 export default {
@@ -31,5 +33,6 @@ export default {
     cart,
     map,
     profile,
-    n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,favs
+    n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,favs,
+    yes,no
 }
