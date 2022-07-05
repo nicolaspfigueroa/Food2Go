@@ -37,6 +37,15 @@ const logRegisterStyles = StyleSheet.create({
         zIndex: 10,
 
     },
+    favsContainer : {
+        alignSelf: "center",
+        width: 180,
+        height: 60,
+        backgroundColor: green,
+        borderRadius: 30,
+        justifyContent: 'center'
+
+    },
     instructions: {
         fontSize: 14,
         fontWeight: '300',

@@ -8,6 +8,7 @@ import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
 import logRegisterStyles from '../constants/styles/LogRegisterStyles';
 import assets from '../constants/assets';
+import icons from '../constants/icons';
 
 const initialState = {
   nickname: ''
@@ -53,7 +54,7 @@ const Profile = () => {
     <SafeAreaView style={{flex: 1}}>
       <NavTop></NavTop>
         <ScrollView>
-          <Text style={{fontWeight: '600', fontSize: 24, alignSelf: 'center', margin: 20 }}>Welcome back!</Text>
+          <Text style={{fontWeight: '300', fontSize: 24, alignSelf: 'center', margin: 20 }}>Welcome back!</Text>
           <View style={{
             width: 150,
             height: 150,
@@ -72,12 +73,10 @@ const Profile = () => {
           
             />        
           </View>
-          <Text style={{fontWeight: '600', fontSize: 24, alignSelf: 'center', margin: 20 }}>{nickname}</Text>
-          <TouchableOpacity onPress = {() => navigation.navigate('Logout')} style={logRegisterStyles.button} >
-            <Text style={logRegisterStyles.textInButton}>
-              My Favourites
-            </Text>
-          </TouchableOpacity>
+          <Text style={{fontWeight: '300', fontSize: 20, alignSelf: 'center', margin: 6 }}>{nickname}</Text>
+            <View style={logRegisterStyles.favsContainer}>
+            <Image source={icons.favs} style={{left: 20, width:150,height:50}}/>
+            </View>
           <View style={{flex: 1, flexWrap: 'wrap', flexDirection:'row', justifyContent: 'space-around'}}>
             <View style={{
               width: 120,
