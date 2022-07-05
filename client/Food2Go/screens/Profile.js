@@ -1,14 +1,13 @@
-import { View, Text, SafeAreaView, ScrollView, Image } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, Image, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import apiServiceJWT from './../services/ApiService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 import NavTop from '../components/NavTop/NavTop';
 import NavBottom from '../components/NavBottom/NavBottom';
-import logRegisterStyles from '../constants/styles/LogRegisterStyles';
 import assets from '../constants/assets';
 import icons from '../constants/icons';
+import ProfileStyles from '../constants/styles/ProfileStyles';
 
 const initialState = {
   nickname: ''
@@ -54,65 +53,28 @@ const Profile = () => {
     <SafeAreaView style={{flex: 1}}>
       <NavTop></NavTop>
         <ScrollView>
-          <Text style={{fontWeight: '300', fontSize: 24, alignSelf: 'center', margin: 20 }}>Welcome back!</Text>
-          <View style={{
-            width: 150,
-            height: 150,
-            borderRadius: 75, 
-            backgroundColor: 'blue',
-            alignSelf: 'center'
-          }}>  
+          <Text style={ProfileStyles.title}>Welcome back!</Text>
+          <View style={ProfileStyles.profileContainer}>  
             <Image 
-            resizeMode='cover'
-            source={assets.profilepicture}
-            style= {{
-              width: '100%',
-              height: '100%', 
-              borderRadius: 75
-              }}
-          
+              resizeMode='cover'
+              source={assets.profilepicture}
+              style= {ProfileStyles.profileimage}     
             />        
           </View>
-          <Text style={{fontWeight: '300', fontSize: 20, alignSelf: 'center', margin: 6 }}>{nickname}</Text>
-            <View style={logRegisterStyles.favsContainer}>
-            <Image source={icons.favs} style={{left: 20, width:150,height:50}}/>
+          <Text style={ProfileStyles.nickname}>{nickname}</Text>
+            <View style={ProfileStyles.favsContainer}>
+            <Image source={icons.favs} style={ProfileStyles.iconFav}/>
             </View>
-          <View style={{flex: 1, flexWrap: 'wrap', flexDirection:'row', justifyContent: 'space-around'}}>
-            <View style={{
-              width: 120,
-              height: 120,
-              backgroundColor: 'blue',
-              margin: 10,
-              borderRadius: 30,
-            }}></View>
-            <View style={{
-              width: 120,
-              height: 120,
-              backgroundColor: 'blue',
-              margin: 10,
-              borderRadius: 30,
-            }}></View>
-            <View style={{
-              width: 120,
-              height: 120,
-              backgroundColor: 'blue',
-              margin: 10,
-              borderRadius: 30,
-            }}></View>
-            <View style={{
-              width: 120,
-              height: 120,
-              backgroundColor: 'blue',
-              margin: 10,
-              borderRadius: 30,
-            }}></View>
-          
-            <TouchableOpacity onPress = {() => navigation.navigate('Logout')} style={{...logRegisterStyles.button, backgroundColor: 'red', margin: 15}} >
-              <Text style={logRegisterStyles.textInButton}>
+          <View style={ProfileStyles.favoritesContainer}>
+            <View style={ProfileStyles.favoriteImage}></View>
+            <View style={ProfileStyles.favoriteImage}></View>
+            <View style={ProfileStyles.favoriteImage}></View>
+          </View>
+          <TouchableOpacity onPress = {() => navigation.navigate('Logout')} style={ProfileStyles.buttonContainer} >
+              <Text style={ProfileStyles.textInButton}>
                 Logout
               </Text>
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         </ScrollView>
       <NavBottom></NavBottom>
     </SafeAreaView>
