@@ -25,10 +25,10 @@ const Logout = (props) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={logOutStyles.container}>
       <Image source ={icons.greenlogo} style={logOutStyles.image}/>
       <View style={logOutStyles.confirmbox}>
-        <Text  style={ogOutStyles.text}>Are you sure you want to log out?</Text>
+        <Text  style={logOutStyles.text}>Are you sure you want to log out?</Text>
         
       </View>
       <View style = {logOutStyles.optionsContainer}>
@@ -39,7 +39,7 @@ const Logout = (props) => {
         
         </TouchableOpacity>
         <TouchableOpacity onPress = {() => navigation.navigate('Profile')}>
-        <View style = {styles.button}>
+        <View style = {logOutStyles.button}>
             <Image source={icons.no} style={logOutStyles.yn}/>
           </View>
         </TouchableOpacity>

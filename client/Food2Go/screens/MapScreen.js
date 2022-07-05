@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import MapView, { Callout, Marker } from 'react-native-maps';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { Text, View } from 'react-native';
 import  RestaurantService  from '../services/RestaurantService'
 import mapScreenStyles from '../constants/styles/MapScreenStyles';
 import NavTop from '../components/NavTop/NavTop';

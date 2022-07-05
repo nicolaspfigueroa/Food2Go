@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Dimensions } from "react-native";
 
 const mapScreenStyles  = StyleSheet.create({
     container: {
