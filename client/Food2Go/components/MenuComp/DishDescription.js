@@ -29,9 +29,9 @@ const DishDescription = ({dish}) => {
     <View style = {MenuStyles.textContainer}> 
       <Text style= {MenuStyles.dishTitle}>{dish.name}</Text>
       <Text style = {MenuStyles.description}>Description goes here</Text>
-      <Text style={MenuStyles.price}>{dish.price} pesos</Text>
+      <Text style={MenuStyles.price}>$ {(dish.price/100).toFixed(2)}</Text>
       <TouchableOpacity onPress={() => {addDish(dish)}} style={MenuStyles.buttonContainer}>
-        <Text style={MenuStyles.buttonText}>Add to Cart</Text>
+        <Text style={MenuStyles.buttonText}>Add</Text>
       </TouchableOpacity>
     </View>
   )
