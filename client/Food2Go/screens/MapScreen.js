@@ -45,9 +45,6 @@ const getRestaurants= async () => {
   try {
     const res = await RestaurantService.getRestaurants();
     setRestaurants(res);
-    console.log(res);
-    console.log(res[0]);
-    console.log('restaurant  set state', restaurants[0].lat);
   } catch (error) {
     console.log(error);
   }
