@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const db = require('../models/index.js');
-const SECRET_KEY = 'Vivaelperu';
+require('dotenv').config({path: '.env'});
+const SECRET_KEY = process.env.SECRET_KEY || 'Vivaelperu';
 
 const authMiddleware = async(req, res, next) => {
     const authHeaders = req.headers['authorization'];

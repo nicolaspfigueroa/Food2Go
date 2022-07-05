@@ -24,10 +24,9 @@ const CartItem = ({ item }) => {
     <View style = {{flex: 1, flexDirection: 'row', alignSelf: 'center'}}>
     <View style= {MenuStyles.imageContainer}>
       <Image
-      source = {{uri: item.imgUrl 
-       }}
-       resizeMode = 'cover'
-       style = {MenuStyles.image}
+        source = {{uri: item.imgUrl}}
+        resizeMode = 'cover'
+        style = {MenuStyles.image}
       />
     </View>
     <CartDescription item ={item} deleteFromCart = {handleDeleteCart}></CartDescription>

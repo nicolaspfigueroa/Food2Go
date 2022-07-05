@@ -65,6 +65,11 @@ const MenuStyles = StyleSheet.create({
         color: 'white',
         fontWeight: '600',
         textAlign: 'center'
+    }, 
+    dishContainer : {
+        flex: 1, 
+        flexDirection: 'row', 
+        alignSelf: 'center'
     }
 
 })

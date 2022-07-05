@@ -1,5 +1,3 @@
-// const {Sequelize, DataTypes} = require('sequelize');
-// const sequelize = require('../db');
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
@@ -20,10 +18,3 @@ module.exports = (sequelize, DataTypes) => {
 
     return User;
 };
-
-
-// const User = sequelize.define('User', {
-
-// })
-
-// module.exports = User

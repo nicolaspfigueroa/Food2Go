@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => sequelize.define('Dishes', {
       references: {
         model: "Restaurants",
         key: "id",
-        //deferrable: Deferrable.INITIALLY_IMMEDIATE
       }
   },
   name: {
