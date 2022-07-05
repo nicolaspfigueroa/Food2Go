@@ -1,7 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const SECRET_KEY = 'Vivaelperu';
+require('dotenv').config({path: '.env'});
+const SECRET_KEY = process.env.SECRET_KEY || 'Vivaelperu';
 const db = require('../models/index.js');
 
 const create = async(req, res) => {
