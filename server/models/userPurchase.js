@@ -1,7 +1,3 @@
-// const {Sequelize, DataTypes} = require('sequelize');
-// const sequelize = require('../db');
-//const User = require('./user');
-
 
 module.exports = (sequelize, DataTypes, Deferrable) => sequelize.define('UserPurchase', {
     userId: {
@@ -9,7 +5,6 @@ module.exports = (sequelize, DataTypes, Deferrable) => sequelize.define('UserPur
         references: {
           model: "Users",
           key: "id",
-          //deferrable: Deferrable.INITIALLY_IMMEDIATE
         }
     },
     purchase: {
@@ -21,5 +16,3 @@ module.exports = (sequelize, DataTypes, Deferrable) => sequelize.define('UserPur
       allowNull: false
     }
 });
-
-// module.exports = UserPurchases
