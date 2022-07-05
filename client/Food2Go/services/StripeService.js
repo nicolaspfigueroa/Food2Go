@@ -5,7 +5,6 @@ const BASE_URL = `${NGROK}/payment`
 const stripeService = {};
 
 stripeService.createCheckoutSession = (cart) => {
-  console.log(cart);
   return fetch(`${BASE_URL}/create-checkout-session`, {
     method: 'POST',
     credentials: 'include',
@@ -28,8 +27,6 @@ stripeService.createCheckoutSession = (cart) => {
 };
 
 stripeService.fetchPaymentSheetParams = async (cart) => {
-  console.log(cart);
-  console.log(JSON.stringify(cart));
   const response = await fetch(`${BASE_URL}/checkout`, {
     method: 'POST',
     headers: {

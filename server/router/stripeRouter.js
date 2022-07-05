@@ -8,7 +8,6 @@ const router = Router();
 YOUR_DOMAIN = 'http://localhost:3000';
 
 router.post('/create-checkout-session', async (req, res) => {
-  console.log('server', req.body);
   const session = await stripe.checkout.sessions.create({
     line_items: req.body.map(item => {
       return {
@@ -33,7 +32,6 @@ router.post('/create-checkout-session', async (req, res) => {
 
 router.post('/checkout', async (req, res) => {
   // Use an existing Customer ID if this is a returning customer.
-  console.log(req.body);
   const customer = await stripe.customers.create();
   const ephemeralKey = await stripe.ephemeralKeys.create(
     {customer: customer.id},

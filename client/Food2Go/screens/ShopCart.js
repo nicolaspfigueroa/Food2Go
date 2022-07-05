@@ -23,7 +23,6 @@ const ShopCart = () => {
     //let totalPrice = [100];
     if (cart.length > 0) {
       let totalPrice = [getTotal(cart)];
-      console.log(totalPrice);
       initializePaymentSheet(totalPrice);
     };
   }, [cart]);
@@ -42,10 +41,6 @@ const ShopCart = () => {
   }
 
   const initializePaymentSheet = async (totalPrice) => {
-    //const totalPrice = getTotal(cart);
-    //cart.push(totalPrice);
-    console.log(cart);
-    console.log(totalPrice);
     const {
       paymentIntent,
       ephemeralKey,

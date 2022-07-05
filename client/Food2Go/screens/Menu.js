@@ -17,11 +17,8 @@ const [dishes, setDishes] = useState([]);
 
 const getDishes= async () => {
   try {
-      console.log(route.params.restaurant.id);
       const res = await DishService.getRestaurantDishes(route.params.restaurant.id);
       setDishes(res);
-      console.log(res);
-      console.log(dishes);
   } catch (error) {
     console.log(error);
   }

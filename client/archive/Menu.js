@@ -32,11 +32,8 @@ const [dishes, setDishes] = useState([]);
 
 const getDishes= async () => {
   try {
-      console.log(route.params.restaurant.id);
       const res = await DishService.getRestaurantDishes(route.params.restaurant.id);
       setDishes(res);
-      console.log(res);
-      console.log(dishes);
   } catch (error) {
     console.log(error);
   }
@@ -142,12 +139,3 @@ const styles = StyleSheet.create({
 
 export default Menu
 
-
-
-// <Callout onPress={() => {console.log('here you should be  directed to pay for '+dish.name) }}>
-//         <View style={styles.dishdetail}>
-//             <Text>{dish.name}</Text>
-//             <Text>{dish.description}</Text>
-//             <Text>{dish.price}</Text>
-//         </View> 
-//       </Callout>    

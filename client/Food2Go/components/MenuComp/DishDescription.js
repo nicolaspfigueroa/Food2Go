@@ -22,7 +22,6 @@ const DishDescription = ({dish}) => {
       setCart((prevValue) => [...prevValue, item])
     }
     setNum(prevValue => prevValue +1 );
-    console.log(cart);
   };
 
   return (
