@@ -20,6 +20,15 @@ const MenuStyles = StyleSheet.create({
         borderTopRightRadius: 15,
         borderBottomRightRadius: 15,
     },
+    purchaseContainer: {
+        borderColor: 'black',
+        borderWidth: 1.5, 
+        width: '45%',
+        height: 75, 
+        margin: 10,
+        marginLeft: 0,
+        borderRadius: 15
+    },
     imageContainer: {
         borderColor: 'black',
         borderWidth: 1.5, 
@@ -45,6 +54,13 @@ const MenuStyles = StyleSheet.create({
         fontSize: 12,
         color: 'gray'
     }, 
+    descriptionPurchase: {
+        position: 'absolute',
+        bottom: '15%',
+        left: 10,
+        fontSize: 12,
+        color: 'gray'
+    },
     price: {
         position: 'absolute',
         bottom: '8%', 
