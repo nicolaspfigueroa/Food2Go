@@ -10,6 +10,7 @@ import icons from '../constants/icons';
 import ProfileStyles from '../constants/styles/ProfileStyles';
 
 const initialState = {
+  id: '',
   nickname: ''
 };
 
@@ -35,10 +36,11 @@ const Profile = () => {
       const accessToken = await getAccessToken();
       const userInfo = await apiServiceJWT.profile(accessToken);
       if (userInfo) {
-        const { nickname } = userInfo;
+        const { id, nickname } = userInfo;
         setState((prevState) => {
           return {
             ...prevState,
+            id,
             nickname
           };
         });
