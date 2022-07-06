@@ -4,15 +4,20 @@ const BASE_URL = `${NGROK}/purchase`
 
 const purchaseService = {};
 
-purchaseService.postPurchase = (id) => {
-  return fetch(`${BASE_URL}/${id}`)
+purchaseService.postPurchase = (item) => {
+  return fetch(`${BASE_URL}`, {
+    method: 'POST',
+    credentials: 'include',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(item),
+  })
     .then((res) => res.json())
-    .then((data) => data)
-    .catch((e) => e);
+    .catch((err) => console.log(err));
 }
 
 purchaseService.getAllPurchases = (id) => {
-  return fetch(`${BASE_URL}/${id}`)
+  return fetch(`${BASE_URL}/get/${id}`)
   .then((res) => res.json())
   .then((data) => data)
   .catch((e) => e);
