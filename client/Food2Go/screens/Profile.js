@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, ScrollView, Image, TouchableOpacity } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import apiServiceJWT from './../services/ApiService';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
@@ -8,14 +8,14 @@ import NavBottom from '../components/NavBottom/NavBottom';
 import assets from '../constants/assets';
 import icons from '../constants/icons';
 import ProfileStyles from '../constants/styles/ProfileStyles';
+import { ProfileContext } from '../context/ProfileContext';
 
-const initialState = {
-  nickname: ''
-};
 
 const Profile = () => {
-  const [state, setState] = useState(initialState);
-  const nickname = state.nickname || 'Missing';
+
+  const {profile, setProfile} = useContext(ProfileContext);
+
+  const nickname = profile.nickname || 'Missing';
 
   const navigation = useNavigation();
 
@@ -35,10 +35,11 @@ const Profile = () => {
       const accessToken = await getAccessToken();
       const userInfo = await apiServiceJWT.profile(accessToken);
       if (userInfo) {
-        const { nickname } = userInfo;
-        setState((prevState) => {
+        const { id, nickname } = userInfo;
+        setProfile((prevState) => {
           return {
             ...prevState,
+            id,
             nickname
           };
         });
@@ -62,14 +63,11 @@ const Profile = () => {
             />        
           </View>
           <Text style={ProfileStyles.nickname}>{nickname}</Text>
-            <View style={ProfileStyles.favsContainer}>
-            <Image source={icons.favs} style={ProfileStyles.iconFav}/>
-            </View>
-          <View style={ProfileStyles.favoritesContainer}>
-            <View style={ProfileStyles.favoriteImage}></View>
-            <View style={ProfileStyles.favoriteImage}></View>
-            <View style={ProfileStyles.favoriteImage}></View>
-          </View>
+          <TouchableOpacity onPress = {() => navigation.navigate('RecentPurchases')} style={ProfileStyles.buttonContainer} >
+              <Text style={ProfileStyles.textInButton}>
+                Recent Purchases
+              </Text>
+          </TouchableOpacity>
           <TouchableOpacity onPress = {() => navigation.navigate('Logout')} style={ProfileStyles.buttonContainer} >
               <Text style={ProfileStyles.textInButton}>
                 Logout

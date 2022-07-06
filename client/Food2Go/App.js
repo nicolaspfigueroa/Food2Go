@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { StripeProvider } from "@stripe/stripe-react-native";
 import { CartProvider } from "./context/CartContext";
+import { ProfileProvider } from "./context/ProfileContext";
 import ListView from "./screens/ListView";
 import Login from "./screens/Login";
 import MapScreen from "./screens/MapScreen";
@@ -12,6 +13,7 @@ import Register from "./screens/Register";
 import ShopCart from "./screens/ShopCart";
 import auth from './utils/auth';
 import Logout from "./screens/Logout";
+import RecentPurchases from "./screens/RecentPurchases";
 
 
 
@@ -33,8 +35,6 @@ const theme = {
 
 export default function App() {
 
-//  const { cart , setCart} = useContext(CartContext);
-
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
   
@@ -43,13 +43,10 @@ export default function App() {
 
   return (
     <StripeProvider publishableKey="pk_test_51LAdEzKpUH6FEDK0Dpi0P8OyggQNCsGsctYqTbH1SLBR2UR46kfIivuaLuaqjxXaVGrESSz1OnbBMrAafXIwBK4n00nUlcuTtF">
+      <ProfileProvider>
       <CartProvider>
       <NavigationContainer theme = {theme}>
-        
-
-            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login
-            ">
-              
+            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
               <Stack.Screen name="Login" >
                 {props => <Login setIsAuthenticated = {setIsAuthenticated}/>}
               </Stack.Screen>
@@ -64,10 +61,11 @@ export default function App() {
               <Stack.Screen name="Menu"  component={Menu} />
               <Stack.Screen name="Profile" component={Profile} />
               <Stack.Screen name="ShopCart" component={ShopCart} />
-            </Stack.Navigator>
-           
+              <Stack.Screen name="RecentPurchases" component={RecentPurchases} />
+            </Stack.Navigator>  
         </NavigationContainer>
       </CartProvider> 
+      </ProfileProvider>
     </StripeProvider>
   );
 }
