@@ -29,10 +29,10 @@ const listViewStyles = StyleSheet.create({
         paddingTop: 10
     },
     subtitle: {
-        fontWeight: '300', 
+        fontWeight: '400', 
         fontSize: 18,
         paddingTop: 10, 
-        color: "#CBCBCB"
+        color: "gray"
     },
     restaurantlistcontainer : {
         backgroundColor: "transparent",
