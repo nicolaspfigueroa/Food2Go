@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from "@react-navigation/native";
 import logRegisterStyles from '../constants/styles/LogRegisterStyles';
 import assets from '../constants/assets';
+import ProfileStyles from '../constants/styles/ProfileStyles';
 
 const initialState = {
   email: '',
@@ -85,14 +86,14 @@ const Register = (props) => {
             }))}
           />
           <TouchableOpacity disabled={validateForm()} onPress = {handleSubmit}
-            style = {logRegisterStyles.button}>
-            <Text style={logRegisterStyles.textInButton}>
+            style={ProfileStyles.buttonContainer}>
+            <Text style={ProfileStyles.textInButton}>
               Register
             </Text>
           </TouchableOpacity>
           <TouchableOpacity onPress = {() => navigation.navigate('Login')}>
             <Text style = {logRegisterStyles.bottomText}>
-              Already have an account
+              Already have an account?
               <Text style={{color: "#38B000"}}>  Log in!</Text>
             </Text>
           </TouchableOpacity>
