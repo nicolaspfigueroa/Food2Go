@@ -13,10 +13,4 @@ const PurchaseInfo = ({purchase}) => {
   )
 }
 
-{/* <View style = {MenuStyles.dishContainer}>
-<Text style= {MenuStyles.dishTitle}>{purchase.purchase}</Text>
-<Text style={MenuStyles.price}>{(purchase.price/100).toFixed(2)}</Text>
-<Text></Text>
-</View> */}
-
 export default PurchaseInfo

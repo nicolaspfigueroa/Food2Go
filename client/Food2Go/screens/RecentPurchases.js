@@ -9,6 +9,7 @@ import { ProfileContext } from '../context/ProfileContext';
 
 const RecentPurchases = () => {
 
+  const [groupPurchase, setgroupPurchase] = useState([]);
   const [purchases, setPurchases] = useState([]);
   const {profile, setProfile} = useContext(ProfileContext);
 
@@ -16,13 +17,39 @@ const RecentPurchases = () => {
     try {
       const res = await purchaseService.getAllPurchases(profile.id);
       setPurchases(res);
+      return res;
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const groupPurchases = () => {
+    //loop through purchases array, obtain all "createdAt", push to an array
+    //for each "createdAt" loop through, add all with the same time stamp and set groupPurchases
+    getPurchases();
+    //console.log(purchases);
+    const timeStampArr = [];
+    purchases.forEach((purchase) => {
+      timeStampArr.push(purchase.createdAt);
+    })
+    console.log(timeStampArr);
+    for (let i=0; i<timeStampArr.length; i++) {
+      const purchArr = [timeStampArr[i]];
+      purchases.forEach((purchase) => {
+        if (purchase.createdAt === timeStampArr[i]) {
+          purchArr.push(purchase);
+        }
+      })
+      setgroupPurchase((prevValue) => [...prevValue, purchArr]);
+    }
+    console.log(groupPurchase);
   }
+
+
   
   useEffect(() => {
     getPurchases();
+    groupPurchases();
   }, [])
 
   return (
@@ -32,7 +59,7 @@ const RecentPurchases = () => {
         <View style = {{ zIndex: 0}}>
           <Text style={MenuStyles.restaurantTitle}>Recent Purchases</Text>
           <FlatList
-            data = {purchases}
+            data = {groupPurchase}
             renderItem = {({item}) => <PurchaseInfo purchase = {item}></PurchaseInfo>} 
             keyExtractor = {(item) => item.id}
             showsVerticalScrollIndicator = {false}
