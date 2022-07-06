@@ -8,14 +8,16 @@ import CartItem from '../components/Cart/CartItem';
 import stripeService from '../services/StripeService';
 import { CartContext } from '../context/CartContext';
 import ShopCartStyles from '../constants/styles/ShopCartStyles';
+import { ProfileContext } from '../context/ProfileContext';
+import purchaseService from '../services/PurchaseService';
 
 const ShopCart = () => {
 
+  const {profile, setProfile} = useContext(ProfileContext);
   const {cart, setCart} = useContext(CartContext); 
   
   const { initPaymentSheet, presentPaymentSheet } = useStripe();
   const [loading, setLoading] = useState(false);
-  const testCart = [{id: 1, restaurantId: 2, name: 'Sushi', price: 26200}, {id: 2, restaurantId: 2, name: 'Sushi', price: 36200}];
 
   const navigation = useNavigation();
 
@@ -68,6 +70,10 @@ const ShopCart = () => {
       Alert.alert(`Error code: ${error.code}`, error.message);
     } else {
       Alert.alert('Success', 'Your order is confirmed!');
+      cart.forEach((item) => {
+        const purchase = {userId: profile.id, purchase: item.name, price: item.price, quantity: item.quantity}
+        purchaseService.postPurchase(purchase);
+      });
       setCart([]);
       navigation.navigate("Profile");
     }
