@@ -24,6 +24,8 @@ const navBarStyles = StyleSheet.create({
         borderTopStartRadius: 15,
         height :50,
         width: '100%',
+        position: 'absolute',
+        bottom: 0
       },
     num :{
         position: 'absolute',

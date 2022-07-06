@@ -18,7 +18,7 @@ const mapScreenStyles  = StyleSheet.create({
     },
     map: {
       width: Dimensions.get('window').width,
-      height: "84%",
+      height: "100%",
     },
     img: {
       
