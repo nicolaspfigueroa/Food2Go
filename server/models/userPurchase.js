@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes, Deferrable) => sequelize.define('UserPur
       allowNull: false
     },
     quantity: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true
     }
 });
