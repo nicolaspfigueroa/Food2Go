@@ -18,7 +18,7 @@ const RestaurantInfo = ({restaurant}) => {
               style= {listViewStyles.image}
             />
           </View>  
-          <RestaurantDescription title = {restaurant.name}></RestaurantDescription>
+          <RestaurantDescription restaurant = {restaurant}></RestaurantDescription>
         </View>
       </TouchableOpacity>
     </SafeAreaView>
