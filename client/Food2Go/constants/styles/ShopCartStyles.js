@@ -55,6 +55,16 @@ const ShopCartStyles = StyleSheet.create({
         left: '5%',
         justifyContent: 'center'
     },
+    quantityPurchases: {
+        width: 30, 
+        height: 30, 
+        borderRadius: 15,
+        backgroundColor: '#386641',
+        position: 'absolute', 
+        bottom: '5%',
+        right: '5%',
+        justifyContent: 'center'
+    },
     textforQuantity : {
         color: 'white',
         textAlign: 'center',

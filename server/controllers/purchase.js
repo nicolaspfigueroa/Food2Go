@@ -15,8 +15,8 @@ exports.getAllPurchases = async (req, res) => {
 exports.postPurchase = async (req, res) => {
   try {
     //const { userId } = req.params;
-    const {userId, purchase, price} = req.body;
-    const item = await db.UserPurchase.create({userId, purchase, price});
+    const {userId, purchase, price, quantity} = req.body;
+    const item = await db.UserPurchase.create({userId, purchase, price, quantity});
     res.status(201).send({item});
   } catch (error) {
     console.log(error);
