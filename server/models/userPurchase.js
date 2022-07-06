@@ -14,5 +14,9 @@ module.exports = (sequelize, DataTypes, Deferrable) => sequelize.define('UserPur
     price: {
       type: DataTypes.FLOAT,
       allowNull: false
+    },
+    quantity: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
 });
