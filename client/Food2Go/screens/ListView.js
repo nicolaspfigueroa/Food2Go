@@ -33,6 +33,7 @@ const ListView = () => {
             renderItem = {({item}) => <RestaurantInfo restaurant = {item}></RestaurantInfo>} 
             keyExtractor = {(item) => item.id}
             showsVerticalScrollIndicator = {false}
+            style = {{height: '95%'}}
           />
         </View>
       </View>
