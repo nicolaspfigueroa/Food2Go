@@ -37,7 +37,7 @@ const ShopCartStyles = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'center',
         borderRadius: 20,
-        margin: 20,
+        margin: 0,
     }, 
     textinButton : {
         fontWeight: '700',

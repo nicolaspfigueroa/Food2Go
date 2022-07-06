@@ -91,7 +91,7 @@ const ShopCart = () => {
           keyExtractor = {(item) => item.id}
           showsVerticalScrollIndicator = {false}
           style = {{
-            height: '70%'
+            height: '60%'
           }}
         >
         

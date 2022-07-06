@@ -1,5 +1,4 @@
-
-const NGROK='https://94b3-185-207-249-86.ngrok.io';
+const NGROK='https://66db-185-207-249-87.ngrok.io';
 
 
 module.exports = NGROK;
