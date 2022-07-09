@@ -59,7 +59,7 @@ const RecentPurchases = () => {
         <View style = {{ zIndex: 0}}>
           <Text style={MenuStyles.restaurantTitle}>Recent Purchases</Text>
           <FlatList
-            data = {groupPurchase}
+            data = {purchases}
             renderItem = {({item}) => <PurchaseInfo purchase = {item}></PurchaseInfo>} 
             keyExtractor = {(item) => item.id}
             showsVerticalScrollIndicator = {false}

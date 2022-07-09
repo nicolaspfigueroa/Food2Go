@@ -4,6 +4,7 @@ import React from 'react'
 import PurchaseDescription from './PurchaseDescription';
 
 const PurchaseInfo = ({purchase}) => {
+  console.log(purchase);
   return (
     <SafeAreaView style = {{flex: 1}}>
       <View style = {{flex: 1, flexDirection: 'row', alignSelf: 'center'}}>
