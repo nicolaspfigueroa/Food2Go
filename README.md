@@ -23,4 +23,8 @@
 
 - React Native, JavaScript, PostgreSQL, Express, Stripe, Node.js
 
+## Contributors
+
+- Carlos Pinilla (github.com/capi1206)
+- Rodrigo Reategui Gerstein (github.com/PeicoPaco)
 
