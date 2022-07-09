@@ -12,6 +12,9 @@
 - Paste your Stripe public key into the corresponding variable name in "client/Food2Go/App.js.
 - Assign your respective stripe keys to each variable. "DB_PASS" should be assigned to your PostgreSQL database password. "SECRET_KEY" can be any string, it is required to encrypt passwords for user authentication.
 - Enter "nodemon index.js" within the "server" folder to start the server.
+- Import the "restaurants.csv" file into the Restaurants Table and the "dishes.csv" file into the Dishes Table using pgAdmin4.These files are located in "client/data/info"
+- Sign up for ngrok and download the application. Follow the steps listed in the documentation to link your account.
+- Expose the server by entering "ngrok http 3001" into the ngrok terminal. Copy the redirected url and paste it into the "client/Food2Go/utils/ngrok.js" file.
 
 ## Execution
 
