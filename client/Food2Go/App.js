@@ -46,7 +46,7 @@ export default function App() {
       <ProfileProvider>
       <CartProvider>
       <NavigationContainer theme = {theme}>
-            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Login">
+            <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Profile">
               <Stack.Screen name="Login" >
                 {props => <Login setIsAuthenticated = {setIsAuthenticated}/>}
               </Stack.Screen>

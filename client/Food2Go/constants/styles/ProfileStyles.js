@@ -46,7 +46,16 @@ const ProfileStyles = StyleSheet.create({
     buttonContainer : {
         alignSelf: "center",
         width: 180,
-        height: 45,
+        height: 50,
+        backgroundColor: '#38B800',
+        borderRadius: 30,
+        justifyContent: 'center',
+        marginTop: 10,
+    }, 
+    buttonContainerRec : {
+        alignSelf: "center",
+        width: 180,
+        height: 70,
         backgroundColor: '#38B000',
         borderRadius: 30,
         justifyContent: 'center',
@@ -59,10 +68,20 @@ const ProfileStyles = StyleSheet.create({
         backgroundColor: '#38B000',
         borderRadius: 30,
         justifyContent: 'center',
+    },
+    textRecInButton : {
+        marginBottom: 5,
+        width:120, 
+        height:60,
+        alignSelf: "center",
+        zIndex: 10,
     }, 
     textInButton : {
-        color : 'white', 
-        alignSelf: 'center', 
+        marginBottom: 5,
+        width:100, 
+        height:44,
+        alignSelf: "center",
+        zIndex: 10,
     }
 })
 

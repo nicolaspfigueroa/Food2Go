@@ -21,7 +21,11 @@ import n11 from "../assets/images/icons/11.png"
 import favs from "../assets/images/icons/favs.png"
 import yes from "../assets/images/icons/yes.png"
 import no from "../assets/images/icons/no.png"
-
+import heart from "../assets/images/icons/heart.png"
+import emptyheart from "../assets/images/icons/emptyheart.png"
+import register from "../assets/images/icons/register.png"
+import logout from "../assets/images/icons/logout.png"
+import recent from "../assets/images/icons/recent.png"
 
 export default {
     blackcart,
@@ -34,5 +38,7 @@ export default {
     map,
     profile,
     n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,favs,
-    yes,no
+    logout,
+    yes,no, heart, emptyheart, register,
+    recent
 }

@@ -63,15 +63,13 @@ const Profile = () => {
             />        
           </View>
           <Text style={ProfileStyles.nickname}>{nickname}</Text>
-          <TouchableOpacity onPress = {() => navigation.navigate('RecentPurchases')} style={ProfileStyles.buttonContainer} >
-              <Text style={ProfileStyles.textInButton}>
-                Recent Purchases
-              </Text>
+          <TouchableOpacity onPress = {() => navigation.navigate('RecentPurchases')} style={ProfileStyles.buttonContainerRec} >
+              <Image style={ProfileStyles.textRecInButton}
+                source={icons.recent}/>
           </TouchableOpacity>
           <TouchableOpacity onPress = {() => navigation.navigate('Logout')} style={ProfileStyles.buttonContainer} >
-              <Text style={ProfileStyles.textInButton}>
-                Logout
-              </Text>
+              <Image style={ProfileStyles.textInButton}
+                source={icons.logout}/>
           </TouchableOpacity>
         </ScrollView>
       <NavBottom></NavBottom>
