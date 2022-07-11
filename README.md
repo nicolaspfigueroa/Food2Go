@@ -5,8 +5,7 @@
 ## Screenshots
 
 <p align="center">
-  <img src="images/screenshot-readme-1-a.png" />
-  <img src="images/screenshot-readme-1-b.png" />
+  ![](https://github.com/nicolaspfigueroa/Food2Go/blob/main/client/data/screens/login.JPG?raw=true)
 </p>
 
 ## Setup
