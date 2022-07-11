@@ -5,7 +5,7 @@
 ## Screenshots
 
 <p align="center">
-  ![](https://github.com/nicolaspfigueroa/Food2Go/blob/main/client/data/screens/login.JPG?raw=true)
+  <img src = "![](https://github.com/nicolaspfigueroa/Food2Go/blob/main/client/data/screens/login.JPG?raw=true)" />
 </p>
 
 ## Setup
