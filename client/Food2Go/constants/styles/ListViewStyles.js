@@ -55,7 +55,25 @@ const listViewStyles = StyleSheet.create({
         height: "100%",
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
+    },
+    heart: {
+        marginTop: -111,
+        marginLeft: 200,
+        zIndex: 10,
+        width: 45,
+        height: 45,
+        position: "relative"  
+    },
+    eheart: {
+        marginTop: -111,
+        marginBottom : 66.5,
+        marginLeft: 200,
+        zIndex: 10,
+        width: 45,
+        height: 45,
+        position: "relative"  
     }
+
 })
 
 export default listViewStyles
