@@ -2,6 +2,13 @@
 
 - This mobile app was developed to allow users to sign up and order surplus food from local restaurants at a discounted price.
 
+## Screenshots
+
+<p align="center">
+  <img src="images/screenshot-readme-1-a.png" />
+  <img src="images/screenshot-readme-1-b.png" />
+</p>
+
 ## Setup
 
 - Install all node packages using the command "npm i" in the server and client folders.
