@@ -8,7 +8,6 @@
   <img title="" src="https://github.com/nicolaspfigueroa/Food2Go/blob/main/client/data/screens/login.JPG?raw=true" alt="Login" width="230" height="500"/>
   <img title="" src="https://github.com/nicolaspfigueroa/Food2Go/blob/main/client/data/screens/list-view.JPG?raw=true" alt="List View" width="230" height="500"/>
   <img title="" src="https://github.com/nicolaspfigueroa/Food2Go/blob/main/client/data/screens/map-view.JPG?raw=true" alt="Map View" width="230" height="500"/>
-  <img title="" src="https://github.com/nicolaspfigueroa/Food2Go/blob/main/client/data/screens/cart.JPG?raw=true" alt="Cart" width="230" height="500"/>
 </p>
 
 ## Setup
